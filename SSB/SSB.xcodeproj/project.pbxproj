@@ -29,6 +29,10 @@
 		7EA557DF18D0998F0087B0CB /* DJView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA557DE18D0998F0087B0CB /* DJView.m */; };
 		7EA557E218D099B10087B0CB /* GSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA557E118D099B10087B0CB /* GSView.m */; };
 		7EA557E518D099C80087B0CB /* LHView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA557E418D099C80087B0CB /* LHView.m */; };
+		7EA557EB18D09FFF0087B0CB /* SBMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA557E818D09FFF0087B0CB /* SBMenuItem.m */; };
+		7EA557EC18D09FFF0087B0CB /* SpringBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA557EA18D09FFF0087B0CB /* SpringBoard.m */; };
+		7EA557F018D0A8590087B0CB /* AppData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA557EF18D0A8590087B0CB /* AppData.m */; };
+		7EA557F318D0A9750087B0CB /* AppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA557F218D0A9750087B0CB /* AppViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +80,14 @@
 		7EA557E118D099B10087B0CB /* GSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GSView.m; path = SSB/Controller/GSView.m; sourceTree = SOURCE_ROOT; };
 		7EA557E318D099C80087B0CB /* LHView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LHView.h; path = SSB/Controller/LHView.h; sourceTree = SOURCE_ROOT; };
 		7EA557E418D099C80087B0CB /* LHView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LHView.m; path = SSB/Controller/LHView.m; sourceTree = SOURCE_ROOT; };
+		7EA557E718D09FFF0087B0CB /* SBMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBMenuItem.h; sourceTree = "<group>"; };
+		7EA557E818D09FFF0087B0CB /* SBMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBMenuItem.m; sourceTree = "<group>"; };
+		7EA557E918D09FFF0087B0CB /* SpringBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpringBoard.h; sourceTree = "<group>"; };
+		7EA557EA18D09FFF0087B0CB /* SpringBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpringBoard.m; sourceTree = "<group>"; };
+		7EA557EE18D0A8590087B0CB /* AppData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppData.h; path = DataModel/AppData.h; sourceTree = "<group>"; };
+		7EA557EF18D0A8590087B0CB /* AppData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppData.m; path = DataModel/AppData.m; sourceTree = "<group>"; };
+		7EA557F118D0A9750087B0CB /* AppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppViewController.h; path = Controller/AppViewController.h; sourceTree = "<group>"; };
+		7EA557F218D0A9750087B0CB /* AppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppViewController.m; path = Controller/AppViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +147,7 @@
 		7EA5579D18D07B360087B0CB /* SSB */ = {
 			isa = PBXGroup;
 			children = (
+				7EA557ED18D0A8260087B0CB /* DataModel */,
 				7EA557D218D07C7C0087B0CB /* Controller */,
 				7EA557A618D07B360087B0CB /* AppDelegate.h */,
 				7EA557A718D07B360087B0CB /* AppDelegate.m */,
@@ -180,6 +193,7 @@
 		7EA557D218D07C7C0087B0CB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7EA557E618D09FFF0087B0CB /* SpringBoard */,
 				7EA557D318D094DE0087B0CB /* SVControl */,
 				7EA557E018D099B10087B0CB /* GSView.h */,
 				7EA557E118D099B10087B0CB /* GSView.m */,
@@ -189,6 +203,8 @@
 				7EA557D018D07C730087B0CB /* MainViewController.m */,
 				7EA557DD18D0998F0087B0CB /* DJView.h */,
 				7EA557DE18D0998F0087B0CB /* DJView.m */,
+				7EA557F118D0A9750087B0CB /* AppViewController.h */,
+				7EA557F218D0A9750087B0CB /* AppViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -205,6 +221,27 @@
 			);
 			name = SVControl;
 			path = Controller/SVControl;
+			sourceTree = "<group>";
+		};
+		7EA557E618D09FFF0087B0CB /* SpringBoard */ = {
+			isa = PBXGroup;
+			children = (
+				7EA557E718D09FFF0087B0CB /* SBMenuItem.h */,
+				7EA557E818D09FFF0087B0CB /* SBMenuItem.m */,
+				7EA557E918D09FFF0087B0CB /* SpringBoard.h */,
+				7EA557EA18D09FFF0087B0CB /* SpringBoard.m */,
+			);
+			name = SpringBoard;
+			path = Controller/SpringBoard;
+			sourceTree = "<group>";
+		};
+		7EA557ED18D0A8260087B0CB /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				7EA557EE18D0A8590087B0CB /* AppData.h */,
+				7EA557EF18D0A8590087B0CB /* AppData.m */,
+			);
+			name = DataModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,12 +342,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EA557EB18D09FFF0087B0CB /* SBMenuItem.m in Sources */,
 				7EA557DA18D094DE0087B0CB /* SVGloble.m in Sources */,
 				7EA557B118D07B360087B0CB /* ViewController.m in Sources */,
 				7EA557E218D099B10087B0CB /* GSView.m in Sources */,
+				7EA557F318D0A9750087B0CB /* AppViewController.m in Sources */,
+				7EA557F018D0A8590087B0CB /* AppData.m in Sources */,
 				7EA557DB18D094DE0087B0CB /* SVRootScrollView.m in Sources */,
 				7EA557E518D099C80087B0CB /* LHView.m in Sources */,
 				7EA557A818D07B360087B0CB /* AppDelegate.m in Sources */,
+				7EA557EC18D09FFF0087B0CB /* SpringBoard.m in Sources */,
 				7EA557DF18D0998F0087B0CB /* DJView.m in Sources */,
 				7EA557A418D07B360087B0CB /* main.m in Sources */,
 				7EA557D118D07C730087B0CB /* MainViewController.m in Sources */,

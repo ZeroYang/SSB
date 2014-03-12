@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SpringBoard.h"
 
 @interface DJView : UIView
+
+@property (nonatomic,weak) UIViewController *viewControl;
+@property (nonatomic,strong) SpringBoard *spboard;
+
+- (void)initSpringBoard;
 
 @end

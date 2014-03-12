@@ -14,6 +14,9 @@
 #import "GSView.h"
 #import "LHView.h"
 
+#define STATUSBAR_HEIGHT            (20)
+#define NAVBAR_HEIGHT               (44)
+
 @interface MainViewController ()
 
 @end
@@ -48,7 +51,7 @@
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     [SVGloble shareInstance].globleWidth = screenRect.size.width; //屏幕宽度
-    [SVGloble shareInstance].globleHeight = screenRect.size.height-20;  //屏幕高度（有顶栏）
+    [SVGloble shareInstance].globleHeight = screenRect.size.height-STATUSBAR_HEIGHT;  //屏幕高度（有顶栏）
     [SVGloble shareInstance].globleAllHeight = screenRect.size.height;  //屏幕高度（无顶栏）
     
     SVTopScrollView *topScrollView = [SVTopScrollView shareInstance];
@@ -62,11 +65,14 @@
     
     [topScrollView initWithNameButtons];
     NSMutableArray *views = [[NSMutableArray alloc] init];
-    UIView *djView = [[DJView alloc] initWithFrame:CGRectMake(0, 0, 320, screenRect.size.height-20)];
+    DJView *djView = [[DJView alloc] initWithFrame:CGRectMake(0, 0, 320, screenRect.size.height-STATUSBAR_HEIGHT - NAVBAR_HEIGHT)];
+    djView.viewControl = self;
     [views addObject:djView];
-    UIView *gsView = [[GSView alloc] initWithFrame:CGRectMake(0, 0, 320, screenRect.size.height-20)];
+    [djView initSpringBoard];
+    
+    GSView *gsView = [[GSView alloc] initWithFrame:CGRectMake(0, 0, 320, screenRect.size.height-STATUSBAR_HEIGHT - NAVBAR_HEIGHT)];
     [views addObject:gsView];
-    UIView *lhView = [[LHView alloc] initWithFrame:CGRectMake(0, 0, 320, screenRect.size.height-20)];
+    LHView *lhView = [[LHView alloc] initWithFrame:CGRectMake(0, 0, 320, screenRect.size.height-STATUSBAR_HEIGHT - NAVBAR_HEIGHT)];
     [views addObject:lhView];
     
     [rootScrollView initWithViews:views];
