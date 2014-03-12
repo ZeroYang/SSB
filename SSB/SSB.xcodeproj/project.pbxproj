@@ -23,6 +23,12 @@
 		7EA557C418D07B360087B0CB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7EA557C218D07B360087B0CB /* InfoPlist.strings */; };
 		7EA557C618D07B360087B0CB /* SSBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA557C518D07B360087B0CB /* SSBTests.m */; };
 		7EA557D118D07C730087B0CB /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA557D018D07C730087B0CB /* MainViewController.m */; };
+		7EA557DA18D094DE0087B0CB /* SVGloble.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA557D518D094DE0087B0CB /* SVGloble.m */; };
+		7EA557DB18D094DE0087B0CB /* SVRootScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA557D718D094DE0087B0CB /* SVRootScrollView.m */; };
+		7EA557DC18D094DE0087B0CB /* SVTopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA557D918D094DE0087B0CB /* SVTopScrollView.m */; };
+		7EA557DF18D0998F0087B0CB /* DJView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA557DE18D0998F0087B0CB /* DJView.m */; };
+		7EA557E218D099B10087B0CB /* GSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA557E118D099B10087B0CB /* GSView.m */; };
+		7EA557E518D099C80087B0CB /* LHView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA557E418D099C80087B0CB /* LHView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +64,18 @@
 		7EA557C518D07B360087B0CB /* SSBTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSBTests.m; sourceTree = "<group>"; };
 		7EA557CF18D07C730087B0CB /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Controller/MainViewController.h; sourceTree = "<group>"; };
 		7EA557D018D07C730087B0CB /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Controller/MainViewController.m; sourceTree = "<group>"; };
+		7EA557D418D094DE0087B0CB /* SVGloble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGloble.h; sourceTree = "<group>"; };
+		7EA557D518D094DE0087B0CB /* SVGloble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVGloble.m; sourceTree = "<group>"; };
+		7EA557D618D094DE0087B0CB /* SVRootScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRootScrollView.h; sourceTree = "<group>"; };
+		7EA557D718D094DE0087B0CB /* SVRootScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRootScrollView.m; sourceTree = "<group>"; };
+		7EA557D818D094DE0087B0CB /* SVTopScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVTopScrollView.h; sourceTree = "<group>"; };
+		7EA557D918D094DE0087B0CB /* SVTopScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVTopScrollView.m; sourceTree = "<group>"; };
+		7EA557DD18D0998F0087B0CB /* DJView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DJView.h; path = Controller/DJView.h; sourceTree = "<group>"; };
+		7EA557DE18D0998F0087B0CB /* DJView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DJView.m; path = Controller/DJView.m; sourceTree = "<group>"; };
+		7EA557E018D099B10087B0CB /* GSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GSView.h; path = SSB/Controller/GSView.h; sourceTree = SOURCE_ROOT; };
+		7EA557E118D099B10087B0CB /* GSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GSView.m; path = SSB/Controller/GSView.m; sourceTree = SOURCE_ROOT; };
+		7EA557E318D099C80087B0CB /* LHView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LHView.h; path = SSB/Controller/LHView.h; sourceTree = SOURCE_ROOT; };
+		7EA557E418D099C80087B0CB /* LHView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LHView.m; path = SSB/Controller/LHView.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,10 +180,31 @@
 		7EA557D218D07C7C0087B0CB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7EA557D318D094DE0087B0CB /* SVControl */,
+				7EA557E018D099B10087B0CB /* GSView.h */,
+				7EA557E118D099B10087B0CB /* GSView.m */,
+				7EA557E318D099C80087B0CB /* LHView.h */,
+				7EA557E418D099C80087B0CB /* LHView.m */,
 				7EA557CF18D07C730087B0CB /* MainViewController.h */,
 				7EA557D018D07C730087B0CB /* MainViewController.m */,
+				7EA557DD18D0998F0087B0CB /* DJView.h */,
+				7EA557DE18D0998F0087B0CB /* DJView.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		7EA557D318D094DE0087B0CB /* SVControl */ = {
+			isa = PBXGroup;
+			children = (
+				7EA557D418D094DE0087B0CB /* SVGloble.h */,
+				7EA557D518D094DE0087B0CB /* SVGloble.m */,
+				7EA557D618D094DE0087B0CB /* SVRootScrollView.h */,
+				7EA557D718D094DE0087B0CB /* SVRootScrollView.m */,
+				7EA557D818D094DE0087B0CB /* SVTopScrollView.h */,
+				7EA557D918D094DE0087B0CB /* SVTopScrollView.m */,
+			);
+			name = SVControl;
+			path = Controller/SVControl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,10 +305,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EA557DA18D094DE0087B0CB /* SVGloble.m in Sources */,
 				7EA557B118D07B360087B0CB /* ViewController.m in Sources */,
+				7EA557E218D099B10087B0CB /* GSView.m in Sources */,
+				7EA557DB18D094DE0087B0CB /* SVRootScrollView.m in Sources */,
+				7EA557E518D099C80087B0CB /* LHView.m in Sources */,
 				7EA557A818D07B360087B0CB /* AppDelegate.m in Sources */,
+				7EA557DF18D0998F0087B0CB /* DJView.m in Sources */,
 				7EA557A418D07B360087B0CB /* main.m in Sources */,
 				7EA557D118D07C730087B0CB /* MainViewController.m in Sources */,
+				7EA557DC18D094DE0087B0CB /* SVTopScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

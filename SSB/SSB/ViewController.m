@@ -19,6 +19,8 @@
 {
     MainViewController *main = [[MainViewController alloc] init];
     [self presentViewController:main animated:YES completion:nil];
+//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:main];
+//    [self presentViewController:nav animated:YES completion:nil];
 }
 
 - (void)viewDidLoad
