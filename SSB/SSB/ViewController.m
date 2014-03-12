@@ -7,12 +7,19 @@
 //
 
 #import "ViewController.h"
+#import "MainViewController.h"
 
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    MainViewController *main = [[MainViewController alloc] init];
+    [self presentViewController:main animated:YES completion:nil];
+}
 
 - (void)viewDidLoad
 {

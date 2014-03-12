@@ -22,6 +22,7 @@
 		7EA557BC18D07B360087B0CB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EA5579B18D07B360087B0CB /* UIKit.framework */; };
 		7EA557C418D07B360087B0CB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7EA557C218D07B360087B0CB /* InfoPlist.strings */; };
 		7EA557C618D07B360087B0CB /* SSBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA557C518D07B360087B0CB /* SSBTests.m */; };
+		7EA557D118D07C730087B0CB /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA557D018D07C730087B0CB /* MainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		7EA557C118D07B360087B0CB /* SSBTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SSBTests-Info.plist"; sourceTree = "<group>"; };
 		7EA557C318D07B360087B0CB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7EA557C518D07B360087B0CB /* SSBTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSBTests.m; sourceTree = "<group>"; };
+		7EA557CF18D07C730087B0CB /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Controller/MainViewController.h; sourceTree = "<group>"; };
+		7EA557D018D07C730087B0CB /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Controller/MainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +117,7 @@
 		7EA5579D18D07B360087B0CB /* SSB */ = {
 			isa = PBXGroup;
 			children = (
+				7EA557D218D07C7C0087B0CB /* Controller */,
 				7EA557A618D07B360087B0CB /* AppDelegate.h */,
 				7EA557A718D07B360087B0CB /* AppDelegate.m */,
 				7EA557A918D07B360087B0CB /* Main_iPhone.storyboard */,
@@ -153,6 +157,15 @@
 				7EA557C218D07B360087B0CB /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7EA557D218D07C7C0087B0CB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7EA557CF18D07C730087B0CB /* MainViewController.h */,
+				7EA557D018D07C730087B0CB /* MainViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +269,7 @@
 				7EA557B118D07B360087B0CB /* ViewController.m in Sources */,
 				7EA557A818D07B360087B0CB /* AppDelegate.m in Sources */,
 				7EA557A418D07B360087B0CB /* main.m in Sources */,
+				7EA557D118D07C730087B0CB /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +409,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SSB/SSB-Prefix.pch";
 				INFOPLIST_FILE = "SSB/SSB-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -408,6 +423,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SSB/SSB-Prefix.pch";
 				INFOPLIST_FILE = "SSB/SSB-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
