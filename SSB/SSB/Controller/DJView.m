@@ -7,57 +7,83 @@
 //
 
 #import "DJView.h"
+#import "MenuItem.h"
+#import "MenuItemView.h"
+
+#define MENUITEMVIEW_WIDTH      90
+#define MENUITEMVIEW_HEIGHT     90
+#define SPACE_WIDTH             50/4//间距
+
+@interface DJView()
+{
+    NSMutableArray *items;
+}
+@end
 
 @implementation DJView
 
 @synthesize viewControl;
-@synthesize spboard;
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        UILabel *text = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 200, 50)];
-        text.text = @"全市山洪灾害监测平台";
-        [self addSubview:text];
+        items = [[NSMutableArray alloc] init];
+        //降雨量
+        MenuItem *item1 = [[MenuItem alloc] init];
+        item1.icon = @"rainfall";
+        item1.name = @"降雨量";
+        [items addObject:item1];
+        //水位
+        MenuItem *item2 = [[MenuItem alloc] init];
+        item2.icon = @"waterlevel";
+        item2.name = @"水位";
+        [items addObject:item2];
+        //照片
+        MenuItem *item3 = [[MenuItem alloc] init];
+        item3.icon = @"picture";
+        item3.name = @"照片";
+        [items addObject:item3];
+        //预警雷达
+        MenuItem *item4 = [[MenuItem alloc] init];
+        item4.icon = @"alarm";
+        item4.name = @"预警雷达";
+        [items addObject:item4];
+        //天气预报
+        MenuItem *item5 = [[MenuItem alloc] init];
+        item5.icon = @"weather";
+        item5.name = @"天气预报";
+        [items addObject:item5];
+        //视频教程
+        MenuItem *item6 = [[MenuItem alloc] init];
+        item6.icon = @"movie";
+        item6.name = @"视频教程";
+        [items addObject:item6];
+        //相关链接
+        MenuItem *item7 = [[MenuItem alloc] init];
+        item7.icon = @"tabel";
+        item7.name = @"相关链接";
+        [items addObject:item7];
+        
     }
     return self;
 }
 
 - (void)initSpringBoard
 {
-    if (spboard) {
-        return;
-    }
-    
-    SBMenuItem *item = nil;
-    NSMutableArray *items = [[NSMutableArray alloc] init];
-    int count = 5;
-    for (int i = 0; i < count; i++) {
-        AppData *app = [[AppData alloc] init];
-        app.icon = [NSString stringWithFormat:@"serviceIcon-%d",i+1];
-        app.name = [NSString stringWithFormat:@"应用%d",i+1];
-        app.description = [NSString stringWithFormat:@"descriptiondescriptiondescription%d",i+1];
-        app.appId = [NSString stringWithFormat:@"%d",i+1];
-        app.appArgs = @"";
-        item = [[SBMenuItem alloc] initWithApp:app];
-        item.control = viewControl;
-        [items addObject:item];
+
+    for (int i = 0; i < [items count]; i++) {
+
+        MenuItemView *view =  [[MenuItemView alloc] initWithFrame:CGRectMake(i%3*(MENUITEMVIEW_WIDTH+SPACE_WIDTH)+SPACE_WIDTH, i/3*(MENUITEMVIEW_HEIGHT+SPACE_WIDTH), MENUITEMVIEW_WIDTH, MENUITEMVIEW_HEIGHT)];
+        [self addSubview:view];
         
+        MenuItem *item = [items objectAtIndex:i];
+        item.viewControl = viewControl;
+        [view initWith:item];
     }
     
     
-    // at least, here is a Add buttonitem
-    item = [[SBMenuItem alloc] initWithApp:nil];
-    item.control = viewControl;
-    [items addObject:item];
-    
-    CGRect spRect = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
-    spboard = [[SpringBoard alloc] initWithTitle:@"hello"
-                                           items:items
-                                           frame:spRect];
-    [self addSubview:spboard];
 }
 
 

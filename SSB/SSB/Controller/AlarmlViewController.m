@@ -1,19 +1,18 @@
 //
-//  AppViewController.m
+//  AlarmlViewController.m
 //  SSB
 //
 //  Created by YTB on 14-3-12.
 //  Copyright (c) 2014年 YTB. All rights reserved.
 //
 
-#import "AppViewController.h"
+#import "AlarmlViewController.h"
 
-@interface AppViewController ()
+@interface AlarmlViewController ()
 
 @end
 
-@implementation AppViewController
-@synthesize appData;
+@implementation AlarmlViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

@@ -1,5 +1,5 @@
 //
-//  DJView.h
+//  AlarmlViewController.h
 //  SSB
 //
 //  Created by YTB on 14-3-12.
@@ -8,10 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DJView : UIView
+@interface AlarmlViewController : UIViewController
 
-@property (nonatomic,weak) UIViewController *viewControl;
-
-- (void)initSpringBoard;
 
 @end
