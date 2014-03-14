@@ -7,10 +7,18 @@
 //
 
 #import "MenuItemView.h"
+#import "AlarmlViewController.h"
 
 #define  FONT_SIZE          14.0f
 
+@interface MenuItemView ()
+
+@property(nonatomic, strong)MenuItem *item;
+
+@end
+
 @implementation MenuItemView
+@synthesize item;
 @synthesize iconBtn;
 @synthesize textLabel;
 
@@ -23,13 +31,15 @@
     return self;
 }
 
--(void) initWith:(MenuItem*)item
+-(void) initWith:(MenuItem*)menuitem
 {
+    self.item = menuitem;
     int MaxWidth = self.frame.size.width;
     UIImage *icon = [UIImage  imageNamed:item.icon];
     iconBtn = [[UIButton alloc] init];
     [iconBtn setFrame:CGRectMake((MaxWidth - icon.size.width)/2, 5, icon.size.width, icon.size.height)];
     [iconBtn setImage:icon forState:UIControlStateNormal];
+    [iconBtn addTarget:self action:@selector(clickIconBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:iconBtn];
     
     int MaxLabelWidth = 150;
@@ -43,6 +53,14 @@
     textLabel.font = [UIFont systemFontOfSize:FONT_SIZE];
     textLabel.textAlignment = NSTextAlignmentCenter;
     textLabel.text = item.name;
+}
+
+-(void)clickIconBtn:(id)sender
+{
+    if ([item.name isEqualToString:@"预警雷达"]) {
+        AlarmlViewController *alarm = [[AlarmlViewController alloc] init];
+        [item.viewControl.navigationController pushViewController:alarm animated:NO];
+    }
 }
 
 /*

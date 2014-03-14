@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7E65BB6318D1F2A600872990 /* MenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E65BB6218D1F2A600872990 /* MenuItemView.m */; };
 		7E65BB6618D1F38000872990 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E65BB6518D1F38000872990 /* MenuItem.m */; };
+		7E65BB6918D202E000872990 /* RadarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E65BB6818D202E000872990 /* RadarView.m */; };
 		7EA5579818D07B360087B0CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EA5579718D07B360087B0CB /* Foundation.framework */; };
 		7EA5579A18D07B360087B0CB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EA5579918D07B360087B0CB /* CoreGraphics.framework */; };
 		7EA5579C18D07B360087B0CB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EA5579B18D07B360087B0CB /* UIKit.framework */; };
@@ -49,6 +50,8 @@
 		7E65BB6218D1F2A600872990 /* MenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuItemView.m; path = Controller/MenuItemView.m; sourceTree = "<group>"; };
 		7E65BB6418D1F38000872990 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuItem.h; path = DataModel/MenuItem.h; sourceTree = "<group>"; };
 		7E65BB6518D1F38000872990 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuItem.m; path = DataModel/MenuItem.m; sourceTree = "<group>"; };
+		7E65BB6718D202E000872990 /* RadarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadarView.h; sourceTree = "<group>"; };
+		7E65BB6818D202E000872990 /* RadarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadarView.m; sourceTree = "<group>"; };
 		7EA5579418D07B360087B0CB /* SSB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EA5579718D07B360087B0CB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7EA5579918D07B360087B0CB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -203,6 +206,8 @@
 				7EA557F218D0A9750087B0CB /* AlarmlViewController.m */,
 				7E65BB6118D1F2A600872990 /* MenuItemView.h */,
 				7E65BB6218D1F2A600872990 /* MenuItemView.m */,
+				7E65BB6718D202E000872990 /* RadarView.h */,
+				7E65BB6818D202E000872990 /* RadarView.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -341,6 +346,7 @@
 				7EA557A418D07B360087B0CB /* main.m in Sources */,
 				7EA557D118D07C730087B0CB /* MainViewController.m in Sources */,
 				7EA557DC18D094DE0087B0CB /* SVTopScrollView.m in Sources */,
+				7E65BB6918D202E000872990 /* RadarView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

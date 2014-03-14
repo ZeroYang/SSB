@@ -14,6 +14,6 @@
 @property(nonatomic, strong)UIButton *iconBtn;
 @property(nonatomic, strong)UILabel *textLabel;
 
--(void) initWith:(MenuItem*)item;
+-(void) initWith:(MenuItem*)menuitem;
 
 @end
