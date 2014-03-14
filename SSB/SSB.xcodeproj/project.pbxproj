@@ -33,6 +33,8 @@
 		7EA557E218D099B10087B0CB /* GSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA557E118D099B10087B0CB /* GSView.m */; };
 		7EA557E518D099C80087B0CB /* LHView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA557E418D099C80087B0CB /* LHView.m */; };
 		7EA557F318D0A9750087B0CB /* AlarmlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA557F218D0A9750087B0CB /* AlarmlViewController.m */; };
+		7EC0E08618D352A30088CD7C /* ReferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC0E08518D352A30088CD7C /* ReferenceViewController.m */; };
+		7EC0E08918D353040088CD7C /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC0E08818D353040088CD7C /* WebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,10 @@
 		7EA557E418D099C80087B0CB /* LHView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LHView.m; path = SSB/Controller/LHView.m; sourceTree = SOURCE_ROOT; };
 		7EA557F118D0A9750087B0CB /* AlarmlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlarmlViewController.h; path = Controller/AlarmlViewController.h; sourceTree = "<group>"; };
 		7EA557F218D0A9750087B0CB /* AlarmlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlarmlViewController.m; path = Controller/AlarmlViewController.m; sourceTree = "<group>"; };
+		7EC0E08418D352A30088CD7C /* ReferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReferenceViewController.h; path = Controller/ReferenceViewController.h; sourceTree = "<group>"; };
+		7EC0E08518D352A30088CD7C /* ReferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReferenceViewController.m; path = Controller/ReferenceViewController.m; sourceTree = "<group>"; };
+		7EC0E08718D353040088CD7C /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebViewController.h; path = Controller/WebViewController.h; sourceTree = "<group>"; };
+		7EC0E08818D353040088CD7C /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebViewController.m; path = Controller/WebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +214,10 @@
 				7E65BB6218D1F2A600872990 /* MenuItemView.m */,
 				7E65BB6718D202E000872990 /* RadarView.h */,
 				7E65BB6818D202E000872990 /* RadarView.m */,
+				7EC0E08418D352A30088CD7C /* ReferenceViewController.h */,
+				7EC0E08518D352A30088CD7C /* ReferenceViewController.m */,
+				7EC0E08718D353040088CD7C /* WebViewController.h */,
+				7EC0E08818D353040088CD7C /* WebViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -344,8 +354,10 @@
 				7EA557A818D07B360087B0CB /* AppDelegate.m in Sources */,
 				7EA557DF18D0998F0087B0CB /* DJView.m in Sources */,
 				7EA557A418D07B360087B0CB /* main.m in Sources */,
+				7EC0E08918D353040088CD7C /* WebViewController.m in Sources */,
 				7EA557D118D07C730087B0CB /* MainViewController.m in Sources */,
 				7EA557DC18D094DE0087B0CB /* SVTopScrollView.m in Sources */,
+				7EC0E08618D352A30088CD7C /* ReferenceViewController.m in Sources */,
 				7E65BB6918D202E000872990 /* RadarView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

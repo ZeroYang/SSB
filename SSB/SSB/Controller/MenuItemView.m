@@ -8,6 +8,7 @@
 
 #import "MenuItemView.h"
 #import "AlarmlViewController.h"
+#import "ReferenceViewController.h"
 
 #define  FONT_SIZE          14.0f
 
@@ -60,6 +61,10 @@
     if ([item.name isEqualToString:@"预警雷达"]) {
         AlarmlViewController *alarm = [[AlarmlViewController alloc] init];
         [item.viewControl.navigationController pushViewController:alarm animated:NO];
+    }
+    if ([item.name isEqualToString:@"相关链接"]) {
+        ReferenceViewController *reference = [[ReferenceViewController alloc] init];
+        [item.viewControl.navigationController pushViewController:reference animated:NO];
     }
 }
 
