@@ -35,6 +35,11 @@
 		7EA557F318D0A9750087B0CB /* AlarmlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA557F218D0A9750087B0CB /* AlarmlViewController.m */; };
 		7EC0E08618D352A30088CD7C /* ReferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC0E08518D352A30088CD7C /* ReferenceViewController.m */; };
 		7EC0E08918D353040088CD7C /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC0E08818D353040088CD7C /* WebViewController.m */; };
+		7EC0E08C18D35BC80088CD7C /* VideoTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC0E08B18D35BC80088CD7C /* VideoTutorialViewController.m */; };
+		7EC0E08F18D35C600088CD7C /* RainFallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC0E08E18D35C600088CD7C /* RainFallViewController.m */; };
+		7EC0E09218D35CE50088CD7C /* WaterLevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC0E09118D35CE50088CD7C /* WaterLevelViewController.m */; };
+		7EC0E09518D35D680088CD7C /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC0E09418D35D680088CD7C /* WeatherViewController.m */; };
+		7EC0E09818D35DEF0088CD7C /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC0E09718D35DEF0088CD7C /* PhotoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +99,16 @@
 		7EC0E08518D352A30088CD7C /* ReferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReferenceViewController.m; path = Controller/ReferenceViewController.m; sourceTree = "<group>"; };
 		7EC0E08718D353040088CD7C /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebViewController.h; path = Controller/WebViewController.h; sourceTree = "<group>"; };
 		7EC0E08818D353040088CD7C /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebViewController.m; path = Controller/WebViewController.m; sourceTree = "<group>"; };
+		7EC0E08A18D35BC80088CD7C /* VideoTutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoTutorialViewController.h; path = Controller/VideoTutorialViewController.h; sourceTree = "<group>"; };
+		7EC0E08B18D35BC80088CD7C /* VideoTutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoTutorialViewController.m; path = Controller/VideoTutorialViewController.m; sourceTree = "<group>"; };
+		7EC0E08D18D35C600088CD7C /* RainFallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RainFallViewController.h; path = Controller/RainFallViewController.h; sourceTree = "<group>"; };
+		7EC0E08E18D35C600088CD7C /* RainFallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RainFallViewController.m; path = Controller/RainFallViewController.m; sourceTree = "<group>"; };
+		7EC0E09018D35CE50088CD7C /* WaterLevelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaterLevelViewController.h; path = Controller/WaterLevelViewController.h; sourceTree = "<group>"; };
+		7EC0E09118D35CE50088CD7C /* WaterLevelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WaterLevelViewController.m; path = Controller/WaterLevelViewController.m; sourceTree = "<group>"; };
+		7EC0E09318D35D680088CD7C /* WeatherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeatherViewController.h; path = Controller/WeatherViewController.h; sourceTree = "<group>"; };
+		7EC0E09418D35D680088CD7C /* WeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeatherViewController.m; path = Controller/WeatherViewController.m; sourceTree = "<group>"; };
+		7EC0E09618D35DEF0088CD7C /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoViewController.h; path = Controller/PhotoViewController.h; sourceTree = "<group>"; };
+		7EC0E09718D35DEF0088CD7C /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoViewController.m; path = Controller/PhotoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +233,16 @@
 				7EC0E08518D352A30088CD7C /* ReferenceViewController.m */,
 				7EC0E08718D353040088CD7C /* WebViewController.h */,
 				7EC0E08818D353040088CD7C /* WebViewController.m */,
+				7EC0E08A18D35BC80088CD7C /* VideoTutorialViewController.h */,
+				7EC0E08B18D35BC80088CD7C /* VideoTutorialViewController.m */,
+				7EC0E08D18D35C600088CD7C /* RainFallViewController.h */,
+				7EC0E08E18D35C600088CD7C /* RainFallViewController.m */,
+				7EC0E09018D35CE50088CD7C /* WaterLevelViewController.h */,
+				7EC0E09118D35CE50088CD7C /* WaterLevelViewController.m */,
+				7EC0E09318D35D680088CD7C /* WeatherViewController.h */,
+				7EC0E09418D35D680088CD7C /* WeatherViewController.m */,
+				7EC0E09618D35DEF0088CD7C /* PhotoViewController.h */,
+				7EC0E09718D35DEF0088CD7C /* PhotoViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -347,18 +372,23 @@
 				7EA557B118D07B360087B0CB /* ViewController.m in Sources */,
 				7EA557E218D099B10087B0CB /* GSView.m in Sources */,
 				7E65BB6618D1F38000872990 /* MenuItem.m in Sources */,
+				7EC0E08C18D35BC80088CD7C /* VideoTutorialViewController.m in Sources */,
 				7EA557F318D0A9750087B0CB /* AlarmlViewController.m in Sources */,
+				7EC0E09818D35DEF0088CD7C /* PhotoViewController.m in Sources */,
 				7EA557DB18D094DE0087B0CB /* SVRootScrollView.m in Sources */,
 				7EA557E518D099C80087B0CB /* LHView.m in Sources */,
+				7EC0E09218D35CE50088CD7C /* WaterLevelViewController.m in Sources */,
 				7E65BB6318D1F2A600872990 /* MenuItemView.m in Sources */,
 				7EA557A818D07B360087B0CB /* AppDelegate.m in Sources */,
 				7EA557DF18D0998F0087B0CB /* DJView.m in Sources */,
 				7EA557A418D07B360087B0CB /* main.m in Sources */,
+				7EC0E09518D35D680088CD7C /* WeatherViewController.m in Sources */,
 				7EC0E08918D353040088CD7C /* WebViewController.m in Sources */,
 				7EA557D118D07C730087B0CB /* MainViewController.m in Sources */,
 				7EA557DC18D094DE0087B0CB /* SVTopScrollView.m in Sources */,
 				7EC0E08618D352A30088CD7C /* ReferenceViewController.m in Sources */,
 				7E65BB6918D202E000872990 /* RadarView.m in Sources */,
+				7EC0E08F18D35C600088CD7C /* RainFallViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

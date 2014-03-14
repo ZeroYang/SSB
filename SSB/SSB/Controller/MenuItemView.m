@@ -9,6 +9,11 @@
 #import "MenuItemView.h"
 #import "AlarmlViewController.h"
 #import "ReferenceViewController.h"
+#import "VideoTutorialViewController.h"
+#import "RainFallViewController.h"
+#import "WaterLevelViewController.h"
+#import "WeatherViewController.h"
+#import "PhotoViewController.h"
 
 #define  FONT_SIZE          14.0f
 
@@ -65,6 +70,26 @@
     if ([item.name isEqualToString:@"相关链接"]) {
         ReferenceViewController *reference = [[ReferenceViewController alloc] init];
         [item.viewControl.navigationController pushViewController:reference animated:NO];
+    }
+    if ([item.name isEqualToString:@"视频教程"]) {
+        VideoTutorialViewController *tutorial = [[VideoTutorialViewController alloc] init];
+        [item.viewControl.navigationController pushViewController:tutorial animated:NO];
+    }
+    if ([item.name isEqualToString:@"降雨量"]) {
+        RainFallViewController *rainfall = [[RainFallViewController alloc] init];
+        [item.viewControl.navigationController pushViewController:rainfall animated:NO];
+    }
+    if ([item.name isEqualToString:@"水位"]) {
+        WaterLevelViewController *warterlevel = [[WaterLevelViewController alloc] init];
+        [item.viewControl.navigationController pushViewController:warterlevel animated:NO];
+    }
+    if ([item.name isEqualToString:@"天气预报"]) {
+        WeatherViewController *weather= [[WeatherViewController alloc] init];
+        [item.viewControl.navigationController pushViewController:weather animated:NO];
+    }
+    if ([item.name isEqualToString:@"照片"]) {
+        PhotoViewController *photo= [[PhotoViewController alloc] init];
+        [item.viewControl.navigationController pushViewController:photo animated:NO];
     }
 }
 
