@@ -73,7 +73,7 @@
         [button addTarget:self action:@selector(selectNameButton:) forControlEvents:UIControlEventTouchUpInside];
         
         int buttonWidth = [title sizeWithFont:button.titleLabel.font
-                            constrainedToSize:CGSizeMake(150, 30)
+                            constrainedToSize:CGSizeMake(2000, 30)
                                 lineBreakMode:NSLineBreakByClipping].width;
         
         button.frame = CGRectMake(xPos, 9, buttonWidth+BUTTONGAP, 30);
@@ -89,9 +89,9 @@
     
     self.contentSize = CGSizeMake(xPos, 44);
     
-    shadowImageView = [[UIImageView alloc] initWithFrame:CGRectMake(BUTTONGAP, 0, [[_buttonWithArray objectAtIndex:0] floatValue], 44)];
-    [shadowImageView setImage:[UIImage imageNamed:@"red_line_and_shadow.png"]];
-    [self addSubview:shadowImageView];
+//    shadowImageView = [[UIImageView alloc] initWithFrame:CGRectMake(BUTTONGAP, 0, [[_buttonWithArray objectAtIndex:0] floatValue], 44)];
+//    [shadowImageView setImage:[UIImage imageNamed:@"red_line_and_shadow.png"]];
+//    [self addSubview:shadowImageView];
 }
 
 //点击顶部条滚动标签

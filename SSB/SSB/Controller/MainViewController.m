@@ -29,19 +29,19 @@
     if (self) {
         // Custom initialization
         self.title = @"丹江口市防汛";
+        self.hidesBottomBarWhenPushed = YES;
     }
     return self;
 }
 
-//-(void)viewWillAppear:(BOOL)animated
-//{
-//    //[self.navigationController setNavigationBarHidden:YES];
-//    if ([[[UIDevice currentDevice] systemVersion] doubleValue] >= 7.0) {
-//        
-//        self.edgesForExtendedLayout = UIRectEdgeNone;
-//        
-//    }
-//}
+-(void)viewWillAppear:(BOOL)animated
+{
+    if ([[[UIDevice currentDevice] systemVersion] doubleValue] >= 7.0) {
+        
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        
+    }
+}
 
 - (void)viewDidLoad
 {
@@ -55,24 +55,32 @@
     [SVGloble shareInstance].globleAllHeight = screenRect.size.height;  //屏幕高度（无顶栏）
     
     SVTopScrollView *topScrollView = [SVTopScrollView shareInstance];
+    topScrollView.backgroundColor = [UIColor blueColor];
     SVRootScrollView *rootScrollView = [SVRootScrollView shareInstance];
     
     topScrollView.nameArray = @[@"全市山洪灾害监测平台",@"官山水库大坝监测平台",@"浪河水库大坝监测平台"];
     rootScrollView.viewNameArray = @[@"全市山洪灾害监测平台",@"官山水库大坝监测平台",@"浪河水库大坝监测平台"];
     
+    float viewHeight = screenRect.size.height - STATUSBAR_HEIGHT - NAVBAR_HEIGHT;
+    if ([[[UIDevice currentDevice] systemVersion] doubleValue] >= 7.0) {
+        viewHeight = viewHeight - NAVBAR_HEIGHT;
+    }
+    
     [self.view addSubview:topScrollView];
     [self.view addSubview:rootScrollView];
     
     [topScrollView initWithNameButtons];
+
+     
     NSMutableArray *views = [[NSMutableArray alloc] init];
-    DJView *djView = [[DJView alloc] initWithFrame:CGRectMake(0, 0, 320, screenRect.size.height-STATUSBAR_HEIGHT - NAVBAR_HEIGHT)];
+    DJView *djView = [[DJView alloc] initWithFrame:CGRectMake(0, 0, 320, viewHeight)];
     djView.viewControl = self;
     [views addObject:djView];
     [djView initSpringBoard];
     
-    GSView *gsView = [[GSView alloc] initWithFrame:CGRectMake(0, 0, 320, screenRect.size.height-STATUSBAR_HEIGHT - NAVBAR_HEIGHT)];
+    GSView *gsView = [[GSView alloc] initWithFrame:CGRectMake(0, 0, 320, viewHeight)];
     [views addObject:gsView];
-    LHView *lhView = [[LHView alloc] initWithFrame:CGRectMake(0, 0, 320, screenRect.size.height-STATUSBAR_HEIGHT - NAVBAR_HEIGHT)];
+    LHView *lhView = [[LHView alloc] initWithFrame:CGRectMake(0, 0, 320, viewHeight)];
     [views addObject:lhView];
     
     [rootScrollView initWithViews:views];

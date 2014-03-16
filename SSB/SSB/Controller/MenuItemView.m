@@ -47,6 +47,7 @@
     [iconBtn setImage:icon forState:UIControlStateNormal];
     [iconBtn addTarget:self action:@selector(clickIconBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:iconBtn];
+    iconBtn.backgroundColor = [UIColor clearColor];
     
     int MaxLabelWidth = 150;
     int labelHeight = 30;
@@ -59,6 +60,7 @@
     textLabel.font = [UIFont systemFontOfSize:FONT_SIZE];
     textLabel.textAlignment = NSTextAlignmentCenter;
     textLabel.text = item.name;
+    textLabel.backgroundColor = [UIColor clearColor];
 }
 
 -(void)clickIconBtn:(id)sender
