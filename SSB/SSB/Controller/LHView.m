@@ -17,6 +17,7 @@
         // Initialization code
         UILabel *text = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 200, 50)];
         text.text = @"浪河水库大坝监测平台";
+        text.backgroundColor = [UIColor clearColor];
         [self addSubview:text];
     }
     return self;

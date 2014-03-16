@@ -30,8 +30,8 @@
 	// Do any additional setup after loading the view.
     UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:webView];
-    NSURL *url = [NSURL URLWithString:@"http://www.baidu.com"];
-    //NSURL *url = [NSURL URLWithString:resoureUrl];
+    //NSURL *url = [NSURL URLWithString:@"http://www.baidu.com"];
+    NSURL *url = [NSURL URLWithString:resoureUrl];
     NSURLRequest *request =[NSURLRequest requestWithURL:url];
     [webView loadRequest:request];
     

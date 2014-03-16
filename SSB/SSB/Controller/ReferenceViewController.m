@@ -62,14 +62,14 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     dataList = [[NSMutableArray alloc] init];
-    [dataList addObject:[[ReferenceItem alloc] initWithTitle:@"1、本局山洪灾害系统网址" Url:@""]];
-    [dataList addObject:[[ReferenceItem alloc] initWithTitle:@"2、浪河水库安全系统平台(该站经常不能登录)" Url:@""]];
-    [dataList addObject:[[ReferenceItem alloc] initWithTitle:@"3、官山水库安全系统视频平台" Url:@""]];
-    [dataList addObject:[[ReferenceItem alloc] initWithTitle:@"4、十堰气象局网址(该站只有给与授权IP网址才能登录)" Url:@""]];
-    [dataList addObject:[[ReferenceItem alloc] initWithTitle:@"5、湖北公众信息网址" Url:@""]];
-    [dataList addObject:[[ReferenceItem alloc] initWithTitle:@"6、中央气象台1-3天预报" Url:@""]];
-    [dataList addObject:[[ReferenceItem alloc] initWithTitle:@"7、本局水务防汛网址" Url:@""]];
-    [dataList addObject:[[ReferenceItem alloc] initWithTitle:@"8、长江水情网址" Url:@""]];
+    [dataList addObject:[[ReferenceItem alloc] initWithTitle:@"1、本局山洪灾害系统网址" Url:@"http://61.184.84.212:8081/system/login!input.action"]];
+    [dataList addObject:[[ReferenceItem alloc] initWithTitle:@"2、浪河水库安全系统平台(该站经常不能登录)" Url:@"http://61.184.80.242:8081/"]];
+    [dataList addObject:[[ReferenceItem alloc] initWithTitle:@"3、官山水库安全系统视频平台" Url:@"http://61.184.80.90/doc/page/main.asp"]];
+    [dataList addObject:[[ReferenceItem alloc] initWithTitle:@"4、十堰气象局网址(该站只有给与授权IP网址才能登录)" Url:@"http://218.200.157.18/(S(5cwy4ihaiefjmhlihf0j4pra))/default.aspx"]];
+    [dataList addObject:[[ReferenceItem alloc] initWithTitle:@"5、湖北公众信息网址" Url:@"http://zdz.hbqx.gov.cn/"]];
+    [dataList addObject:[[ReferenceItem alloc] initWithTitle:@"6、中央气象台1-3天预报" Url:@"http://www.nmc.gov.cn/publish/forecasts.htm"]];
+    [dataList addObject:[[ReferenceItem alloc] initWithTitle:@"7、本局水务防汛网址" Url:@"http://61.184.84.212:8086/"]];
+    [dataList addObject:[[ReferenceItem alloc] initWithTitle:@"8、长江水情网址" Url:@"http://www.cjh.com.cn/"]];
     
     UITableView *view = [[UITableView alloc] initWithFrame:self.view.bounds];
     view.delegate = self;
