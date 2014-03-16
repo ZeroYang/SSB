@@ -124,30 +124,10 @@ static inline float radians(double degrees) {
     [self.layer addSublayer:shaplayer];
     [self drawLineAnimation:shaplayer];
     
-//    UIBezierPath *path=[UIBezierPath bezierPath];
-//    [path addArcWithCenter:CGPointMake(center.x,center.y) radius:100 startAngle:radians(0) endAngle:radians(30) clockwise:NO];
-//    
-//    arcLayer=[CAShapeLayer layer];
-//    arcLayer.path=path.CGPath;//46,169,230
-//    arcLayer.fillColor=[UIColor colorWithRed:46.0/255.0 green:169.0/255.0 blue:230.0/255.0 alpha:1].CGColor;
-//    arcLayer.strokeColor=[UIColor colorWithWhite:1 alpha:0.7].CGColor;
-//    arcLayer.lineWidth=3;
-//    arcLayer.frame=self.frame;
-//    [self.layer addSublayer:arcLayer];
-    //[self drawLineAnimation:arcLayer];
-    
-    
 }
 -(void)drawLineAnimation:(CALayer*)layer
 {
-//    CABasicAnimation *bas=[CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-//    bas.duration=1;
-//    bas.delegate=self;
-//    bas.fromValue=[NSNumber numberWithInteger:0];
-//    bas.toValue=[NSNumber numberWithInteger:1];
-//    bas.repeatCount = NSIntegerMax;
-//    [layer addAnimation:bas forKey:@"key"];
-    
+
     CABasicAnimation *a2 = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
 	a2.fromValue = [NSNumber numberWithFloat:0.0];
 	a2.toValue = [NSNumber numberWithFloat:M_PI * 2];
