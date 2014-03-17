@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface RainFallViewController : UIViewController
+#import "ASIHTTPRequest.h"
+@interface RainFallViewController : UIViewController <ASIHTTPRequestDelegate>
 
 @end

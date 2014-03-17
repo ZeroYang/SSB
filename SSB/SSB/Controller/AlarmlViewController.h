@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface AlarmlViewController : UIViewController
+#import "ASIHTTPRequest.h"
+@interface AlarmlViewController : UIViewController <ASIHTTPRequestDelegate>
 
 
 @end

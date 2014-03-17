@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E24EFE818D743F4006E2A5B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E24EFE718D743F4006E2A5B /* DetailViewController.m */; };
 		7E65BB6318D1F2A600872990 /* MenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E65BB6218D1F2A600872990 /* MenuItemView.m */; };
 		7E65BB6618D1F38000872990 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E65BB6518D1F38000872990 /* MenuItem.m */; };
 		7E65BB6918D202E000872990 /* RadarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E65BB6818D202E000872990 /* RadarView.m */; };
@@ -83,6 +84,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E24EFE618D743F4006E2A5B /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = Controller/DetailViewController.h; sourceTree = "<group>"; };
+		7E24EFE718D743F4006E2A5B /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailViewController.m; path = Controller/DetailViewController.m; sourceTree = "<group>"; };
 		7E65BB6118D1F2A600872990 /* MenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuItemView.h; path = Controller/MenuItemView.h; sourceTree = "<group>"; };
 		7E65BB6218D1F2A600872990 /* MenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuItemView.m; path = Controller/MenuItemView.m; sourceTree = "<group>"; };
 		7E65BB6418D1F38000872990 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuItem.h; path = DataModel/MenuItem.h; sourceTree = "<group>"; };
@@ -347,6 +350,8 @@
 				7EC0E09418D35D680088CD7C /* WeatherViewController.m */,
 				7EC0E09618D35DEF0088CD7C /* PhotoViewController.h */,
 				7EC0E09718D35DEF0088CD7C /* PhotoViewController.m */,
+				7E24EFE618D743F4006E2A5B /* DetailViewController.h */,
+				7E24EFE718D743F4006E2A5B /* DetailViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -608,6 +613,7 @@
 				7EC0E0DB18D5F56C0088CD7C /* ASIInputStream.m in Sources */,
 				7EC0E0D618D5F56C0088CD7C /* ASIDataCompressor.m in Sources */,
 				7EC0E0E318D5F56C0088CD7C /* ASICloudFilesObjectRequest.m in Sources */,
+				7E24EFE818D743F4006E2A5B /* DetailViewController.m in Sources */,
 				7EC0E0E818D5F56C0088CD7C /* ASIS3ObjectRequest.m in Sources */,
 				7EC0E0DF18D5F56C0088CD7C /* ASICloudFilesContainer.m in Sources */,
 				7EC0E0D518D5F56C0088CD7C /* ASIAuthenticationDialog.m in Sources */,

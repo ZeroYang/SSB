@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface WaterLevelViewController : UIViewController
+#import "ASIHTTPRequest.h"
+@interface WaterLevelViewController : UIViewController <ASIHTTPRequestDelegate>
 
 @end

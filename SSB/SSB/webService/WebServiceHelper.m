@@ -22,56 +22,32 @@
 + (ASIHTTPRequest *)getASISOAP11Request:(NSString *) WebURL
                          webServiceFile:(NSString *) wsFile
                            xmlNameSpace:(NSString *) xmlNS
-                         webServiceName:(NSString *) wsName
-                           wsParameters:(NSMutableArray *) wsParas
+                         Action:(NSString *) action
 {
-    //1、初始化SOAP消息体
-    NSString * soapMsgBody1 = [[NSString alloc] initWithFormat:
-                               @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-                               "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" \n"
-                               "xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" \n"
-                               "xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
-                               "<soap:Body>\n"
-                               "<%@ xmlns=\"%@\">\n", wsName, xmlNS];
-    NSString * soapMsgBody2 = [[NSString alloc] initWithFormat:
-                               @"</%@>\n"
-                               "</soap:Body>\n"
-                               "</soap:Envelope>", wsName];
-    
-    //2、生成SOAP调用参数
-    //soapParas = [[NSString alloc] init];
-    NSString *soapParas = @"";
-    if (![wsParas isEqual:nil]) {
-        int i = 0;
-        for (i = 0; i < [wsParas count]; i = i + 2) {
-            soapParas = [soapParas stringByAppendingFormat:@"<%@>%@</%@>\n",
-                         [wsParas objectAtIndex:i],
-                         [wsParas objectAtIndex:i+1],
-                         [wsParas objectAtIndex:i]];
-        }
-    }
-    
-    //3、生成SOAP消息
-    NSString * soapMsg = [soapMsgBody1 stringByAppendingFormat:@"%@%@", soapParas, soapMsgBody2];
-    
+
+    NSString *soapMsg = [NSString stringWithFormat:@"<?xml version=\"1.0\" encoding=\"utf-8\"?>\
+    <soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\
+    <soap:Body>\
+    <%@ xmlns=\"%@\" />\
+    </soap:Body>\
+    </soap:Envelope>", action, xmlNS];
+
     //请求发送到的路径
-    NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", WebURL, wsFile]];
-    
-    //NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", WebURL, wsFile]];
+
     ASIHTTPRequest * theRequest = [ASIHTTPRequest requestWithURL:url];
     NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMsg length]];
     
     //以下对请求信息添加属性前四句是必有的，第五句是soap信息。
+    //[theRequest addRequestHeader:@"Host" value:@"61.184.84.212"];
     [theRequest addRequestHeader:@"Content-Type" value:@"text/xml; charset=utf-8"];
-    [theRequest addRequestHeader:@"SOAPAction" value:[NSString stringWithFormat:@"%@%@", xmlNS, wsName]];
+    [theRequest addRequestHeader:@"SOAPAction" value:[NSString stringWithFormat:@"%@%@", xmlNS,action]];
     
     [theRequest addRequestHeader:@"Content-Length" value:msgLength];
     [theRequest setRequestMethod:@"POST"];
     [theRequest appendPostData:[soapMsg dataUsingEncoding:NSUTF8StringEncoding]];
     [theRequest setDefaultResponseEncoding:NSUTF8StringEncoding];
     
-    [soapMsgBody1 release];
-    [soapMsgBody2 release];
     return theRequest;
 }
 
