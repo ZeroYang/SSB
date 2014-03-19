@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "ASIHTTPRequest.h"
-@interface RainFallViewController : UIViewController <ASIHTTPRequestDelegate>
+@interface RainFallViewController : UIViewController <ASIHTTPRequestDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @end

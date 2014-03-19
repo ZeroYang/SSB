@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ASIHTTPRequest.h"
-@interface AppDelegate : UIResponder <UIApplicationDelegate, ASIHTTPRequestDelegate>
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
