@@ -11,8 +11,27 @@
 
 #define CELL_HEIGHT             (40)
 
+
+@interface rainRecordDataModel : NSObject
+@property(nonatomic,strong) NSString *Id;
+@property(nonatomic,strong) NSString *shuikName;
+@property(nonatomic,strong) NSString *latest;
+@property(nonatomic,strong) NSString *RainFail1;
+@property(nonatomic,strong) NSString *RainFail3;
+@property(nonatomic,strong) NSString *RainFail6;
+@property(nonatomic,strong) NSString *RainFail12;
+@property(nonatomic,strong) NSString *RainFail24;
+
+@end
+@implementation rainRecordDataModel
+@synthesize shuikName,latest,RainFail1,RainFail12,RainFail24,RainFail3,RainFail6,Id;
+
+@end
+
 @interface RainFallViewController ()
 {
+    NSMutableArray *ctitleList;
+    NSArray *rtitleList;
     NSMutableArray *dataList;
 }
 @end
@@ -35,14 +54,18 @@
 	// Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     
+    rtitleList = @[@"最近记录时间", @"1小时降雨量", @"3小时降雨量", @"6小时降雨量", @"12小时降雨量", @"24小时降雨量"];
+    ctitleList = [[NSMutableArray alloc] init];
+    dataList = [[NSMutableArray alloc] init];
+    
     spreadView = [[MDSpreadView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:spreadView];
     
     spreadView.delegate = self;
     spreadView.dataSource = self;
     spreadView.userInteractionEnabled = YES;
-    [spreadView reloadData];
     
+    [spreadView reloadData];
     
     //
     ASIHTTPRequest *request = [WebServiceHelper getASISOAP11Request:@"http://61.184.84.212:10000/" webServiceFile:@"webService.asmx" xmlNameSpace:@" http://tempuri.org/" Action:@"getDataApp_Yuliangtable"];
@@ -65,25 +88,49 @@
 
 -(void) requestFinished:(ASIHTTPRequest *)request
 {
-    NSLog(@"%@", [[NSString alloc] initWithData:[request responseData] encoding:NSUTF8StringEncoding]);
+    NSString *xmlResult = [[NSString alloc] initWithData:[request responseData] encoding:NSUTF8StringEncoding];
+    NSLog(@"%@", xmlResult);
+    
+    NSDictionary *dic =[WebServiceHelper getWebServiceXMLResult:xmlResult xpath:@"getDataApp_YuliangtableResult"];
+    
+    NSString *result = [dic objectForKey:@"text"];
+    
+    NSArray *skArray = [result componentsSeparatedByString:@"#"];
+    for (int i= 0; i<[skArray count] - 1; i++) {
+        NSString *skString = [skArray objectAtIndex:i];
+        NSArray *components = [skString componentsSeparatedByString:@"|"];
+        
+        //标题
+        [ctitleList addObject:[components lastObject]];
+        NSMutableArray *rowDatas = [[NSMutableArray alloc] init];
+        //剔除id和水库名
+        for (int i= 1; i<[components count] - 1; i++) {
+            [rowDatas addObject:[components objectAtIndex:i]];
+        }
+        
+        [dataList addObject:rowDatas];
+    }
+    [spreadView reloadData];
+    
 }
+
+//水库名称 最近记录时间 1小时降雨量 3小时降雨量 6小时降雨量 12小时降雨量 24小时降雨量
 
 //<?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><soap:Body><getDataApp_YuliangtableResponse xmlns="http://tempuri.org/"><getDataApp_YuliangtableResult>61939860|2014/3/17 22:01:30|0|0|0|0|0|簸箩岩#61907900|2014/3/17 22:01:25|0|0|0|0|0|白杨坪#62039130|2014/3/17 22:29:27|0|0|0|0|0|太极峡#61907200|2014/3/17 22:01:45|0|0|0|0|0|程家沟#61939740|2014/3/17 22:01:31|0|0|0|0|0|洞子沟#61939730|2014/3/17 22:01:28|0|0|0|0|0|土台#61939720|2014/3/17 22:01:27|0|0|0|0|0|核桃园#61940060|2014/3/17 22:01:28|0|0|0|0|0|红山石#61938250|2014/3/17 22:01:26|0|0|0|0|0|双庙河#61939240|2014/3/17 22:01:24|0|0|0|0|0|岗河#61907300|2014/3/17 22:00:55|0|0|0|0|0|大柏河#61937700|2014/3/17 22:01:29|0|0|0|0|0|后湾一库#61940205|2014/3/17 22:01:33|0|0|0|0|0|许家畈#61937760|2014/3/17 22:01:34|0|0|0|0|0|小柏营#61907600|2014/3/17 22:01:22|0|0|0|0|0|吕家河#61937750|2014/3/17 22:01:32|0|0|0|0|0|十条沟#62009600|2014/3/16 10:04:25|0|0|0|0|0|白石河#61938900|2014/3/17 22:01:26|0|0|0|0|0|官亭#61907810|2014/3/17 22:01:45|0|0|0|0|0|三岔河#61938350|2014/3/17 22:01:31|0|0|0|0|0|黑垭#61906870|2014/3/17 22:01:24|0|0|0|0|0|寨河#61940260|2014/3/17 22:01:25|0|0|0|0|0|黑石沟#61906860|2014/3/17 22:01:46|0|0|0|0|0|堰湾#61940210|2014/3/17 22:13:02|0|0|0|0|0|金岗#61940110|2014/3/17 22:01:24|0|0|0|0|0|八里寨#61937245|2014/3/17 22:01:27|0|0|0|0|0|左绞河#61940100|2014/3/17 22:01:33|0|0|0|0|0|凤凰山#</getDataApp_YuliangtableResult></getDataApp_YuliangtableResponse></soap:Body></soap:Envelope>
 
-#pragma mark   ---------tableView协议----------------
 
 #pragma mark - Spread View Datasource
 
 - (NSInteger)spreadView:(MDSpreadView *)aSpreadView numberOfColumnsInSection:(NSInteger)section
 {
     //view的列数
-    return 10;
+    return [rtitleList count];
 }
 
 - (NSInteger)spreadView:(MDSpreadView *)aSpreadView numberOfRowsInSection:(NSInteger)section
 {
     //view的行数
-    return 10;
+    return [ctitleList count];
 }
 
 - (NSInteger)numberOfColumnSectionsInSpreadView:(MDSpreadView *)aSpreadView
@@ -102,39 +149,41 @@
 // Comment these out to use normal values (see MDSpreadView.h)
 - (CGFloat)spreadView:(MDSpreadView *)aSpreadView heightForRowAtIndexPath:(MDIndexPath *)indexPath
 {
-    return 25+indexPath.row;
+    //行高度
+    return 30;
 }
 
 - (CGFloat)spreadView:(MDSpreadView *)aSpreadView heightForRowHeaderInSection:(NSInteger)rowSection
 {
-    //    if (rowSection == 2) return 0; // uncomment to hide this header!
-    return 22+rowSection;
+    //行 section 宽度
+    return 30;
 }
 
 - (CGFloat)spreadView:(MDSpreadView *)aSpreadView widthForColumnAtIndexPath:(MDIndexPath *)indexPath
 {
-    return 220+indexPath.column*5;
+    //列宽度
+    return 180;
 }
 
 - (CGFloat)spreadView:(MDSpreadView *)aSpreadView widthForColumnHeaderInSection:(NSInteger)columnSection
 {
-    //    if (columnSection == 2) return 0; // uncomment to hide this header!
-    return 110+columnSection*5;
+    //列 的 section 宽度
+    return 90;
 }
 
 #pragma Cells
 - (MDSpreadViewCell *)spreadView:(MDSpreadView *)aSpreadView cellForRowAtIndexPath:(MDIndexPath *)rowPath forColumnAtIndexPath:(MDIndexPath *)columnPath
 {
-    if (rowPath.row >= 25) return nil; // use spreadView:objectValueForRowAtIndexPath:forColumnAtIndexPath below instead
-    
+
     static NSString *cellIdentifier = @"Cell";
     
     MDSpreadViewCell *cell = [aSpreadView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
         cell = [[MDSpreadViewCell alloc] initWithStyle:MDSpreadViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"Test Row %d-%d (%d-%d)", rowPath.section+1, rowPath.row+1, columnPath.section+1, columnPath.row+1];
+    NSArray *dataArray = [dataList objectAtIndex:rowPath.row];
+    NSString *data = [dataArray objectAtIndex:columnPath.row];
+    cell.textLabel.text = data;
     cell.textLabel.textColor = [UIColor colorWithRed:(arc4random()%100)/200. green:(arc4random()%100)/200. blue:(arc4random()%100)/200. alpha:1];
     
     return cell;
@@ -145,22 +194,29 @@
 
 - (id)spreadView:(MDSpreadView *)aSpreadView titleForHeaderInRowSection:(NSInteger)rowSection forColumnSection:(NSInteger)columnSection
 {
+    //TODO 竖直 title 第一列
+    if (0 == columnSection && 0==rowSection) {
+        return @"水库名称";
+    }
     return [NSString stringWithFormat:@"Cor %d-%d", columnSection+1, rowSection+1];
 }
 
 - (id)spreadView:(MDSpreadView *)aSpreadView titleForHeaderInRowSection:(NSInteger)section forColumnAtIndexPath:(MDIndexPath *)columnPath
 {
-    return [NSString stringWithFormat:@"Row Header %d (%d-%d)", section+1, columnPath.section+1, columnPath.row+1];
+// 水平 title 第一行
+    if (0 == [rtitleList count]) {
+        return nil;
+    }
+    return [rtitleList objectAtIndex:columnPath.row];
+
 }
 
 - (id)spreadView:(MDSpreadView *)aSpreadView titleForHeaderInColumnSection:(NSInteger)section forRowAtIndexPath:(MDIndexPath *)rowPath
 {
-    return [NSString stringWithFormat:@"%d (%d-%d)", section+1, rowPath.section+1, rowPath.row+1];
-}
-
-- (id)spreadView:(MDSpreadView *)aSpreadView objectValueForRowAtIndexPath:(MDIndexPath *)rowPath forColumnAtIndexPath:(MDIndexPath *)columnPath
-{
-    return [NSString stringWithFormat:@"A Test Row %d-%d (%d-%d)", rowPath.section+1, rowPath.row+1, columnPath.section+1, columnPath.row+1];
+    if (0 == [ctitleList count]) {
+        return nil;
+    }
+    return [ctitleList objectAtIndex:rowPath.row];
 }
 
 - (void)spreadView:(MDSpreadView *)aSpreadView didSelectCellForRowAtIndexPath:(MDIndexPath *)rowPath forColumnAtIndexPath:(MDIndexPath *)columnPath

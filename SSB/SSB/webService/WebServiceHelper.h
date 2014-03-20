@@ -37,4 +37,6 @@
 
 //+ (NSString *)checkResponseError:(NSString *) theResponse;
 
++ (NSDictionary *)getWebServiceXMLResult:(NSString *) content xpath:(NSString *)path;
+
 @end
