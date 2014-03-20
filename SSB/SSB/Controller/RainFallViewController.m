@@ -9,24 +9,6 @@
 #import "RainFallViewController.h"
 #import "WebServiceHelper.h"
 
-#define CELL_HEIGHT             (40)
-
-
-@interface rainRecordDataModel : NSObject
-@property(nonatomic,strong) NSString *Id;
-@property(nonatomic,strong) NSString *shuikName;
-@property(nonatomic,strong) NSString *latest;
-@property(nonatomic,strong) NSString *RainFail1;
-@property(nonatomic,strong) NSString *RainFail3;
-@property(nonatomic,strong) NSString *RainFail6;
-@property(nonatomic,strong) NSString *RainFail12;
-@property(nonatomic,strong) NSString *RainFail24;
-
-@end
-@implementation rainRecordDataModel
-@synthesize shuikName,latest,RainFail1,RainFail12,RainFail24,RainFail3,RainFail6,Id;
-
-@end
 
 @interface RainFallViewController ()
 {
@@ -103,9 +85,12 @@
         //标题
         [ctitleList addObject:[components lastObject]];
         NSMutableArray *rowDatas = [[NSMutableArray alloc] init];
+        [rowDatas addObject:[components objectAtIndex:1]];
         //剔除id和水库名
-        for (int i= 1; i<[components count] - 1; i++) {
-            [rowDatas addObject:[components objectAtIndex:i]];
+        for (int i= 2; i<[components count] - 1; i++) {
+            //降雨量 加上单位mm
+            [rowDatas addObject:[NSString stringWithFormat:@"%@mm",[components objectAtIndex:i]]];
+            
         }
         
         [dataList addObject:rowDatas];

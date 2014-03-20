@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "ASIHTTPRequest.h"
-@interface WaterLevelViewController : UIViewController <ASIHTTPRequestDelegate>
+#import "MDSpreadViewClasses.h"
+@interface WaterLevelViewController : UIViewController <ASIHTTPRequestDelegate, MDSpreadViewDataSource, MDSpreadViewDelegate>
+{
+    MDSpreadView *spreadView;
+}
 
 @end

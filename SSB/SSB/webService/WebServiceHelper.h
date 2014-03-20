@@ -11,31 +11,11 @@
 
 @interface WebServiceHelper : NSObject
 
-//+ (ASIHTTPRequest *)getASISOAP11Request:(NSString *) WebURL
-//                         webServiceFile:(NSString *) wsFile
-//                           xmlNameSpace:(NSString *) xmlNS
-//                         webServiceName:(NSString *) wsName
-//                           wsParameters:(NSMutableArray *) wsParas;
-
 + (ASIHTTPRequest *)getASISOAP11Request:(NSString *) WebURL
                          webServiceFile:(NSString *) wsFile
                            xmlNameSpace:(NSString *) xmlNS
                                  Action:(NSString *) action;
-//+ (NSString *)getSOAP11WebServiceResponse:(NSString *) WebURL
-//                           webServiceFile:(NSString *) wsFile
-//                             xmlNameSpace:(NSString *) xmlNS
-//                           webServiceName:(NSString *) wsName
-//                             wsParameters:(NSMutableArray *) wsParas;
 
-//+ (NSString *)getSOAP11WebServiceResponseWithNTLM:(NSString *) WebURL
-//                                   webServiceFile:(NSString *) wsFile
-//                                     xmlNameSpace:(NSString *) xmlNS
-//                                   webServiceName:(NSString *) wsName
-//                                     wsParameters:(NSMutableArray *) wsParas
-//                                         userName:(NSString *) userName
-//                                         passWord:(NSString *) passWord;
-
-//+ (NSString *)checkResponseError:(NSString *) theResponse;
 
 + (NSDictionary *)getWebServiceXMLResult:(NSString *) content xpath:(NSString *)path;
 
