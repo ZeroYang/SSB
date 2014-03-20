@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ASIHTTPRequest.h"
-@interface RainFallViewController : UIViewController <ASIHTTPRequestDelegate, UITableViewDelegate, UITableViewDataSource>
-
+#import "MDSpreadViewClasses.h"
+@interface RainFallViewController : UIViewController <ASIHTTPRequestDelegate, MDSpreadViewDataSource, MDSpreadViewDelegate>
+{
+    MDSpreadView *spreadView;
+}
 @end
