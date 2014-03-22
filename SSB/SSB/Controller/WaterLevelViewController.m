@@ -81,10 +81,14 @@
     NSString *result = [dic objectForKey:@"text"];
     
     NSArray *skArray = [result componentsSeparatedByString:@"#"];
+    if(0 == [skArray count]) //报文格式错误
+        return;
     for (int i= 0; i<[skArray count] - 1; i++) {
         NSString *skString = [skArray objectAtIndex:i];
         NSArray *components = [skString componentsSeparatedByString:@"|"];
-        
+        if ([components count] < 1) {
+            return;
+        }
         //标题
         [ctitleList addObject:[components objectAtIndex:4]];
         NSMutableArray *rowDatas = [[NSMutableArray alloc] init];
