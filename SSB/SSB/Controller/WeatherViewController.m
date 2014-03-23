@@ -29,6 +29,14 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    //http://61.184.84.212:8086/weatherstyle1.html
+    
+    UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:webView];
+    NSURL *url = [NSURL URLWithString:@"http://www.weather.com.cn/weather/101201107.shtml"];
+    NSURLRequest *request =[NSURLRequest requestWithURL:url];
+    [webView loadRequest:request];
 }
 
 - (void)didReceiveMemoryWarning
