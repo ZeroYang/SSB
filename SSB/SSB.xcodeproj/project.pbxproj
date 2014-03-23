@@ -77,6 +77,17 @@
 		7EA557E218D099B10087B0CB /* GSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA557E118D099B10087B0CB /* GSView.m */; };
 		7EA557E518D099C80087B0CB /* LHView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA557E418D099C80087B0CB /* LHView.m */; };
 		7EA557F318D0A9750087B0CB /* AlarmlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA557F218D0A9750087B0CB /* AlarmlViewController.m */; };
+		7EB7FB5618DE7D0600BA7261 /* arrow_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EB7FB4418DE7D0600BA7261 /* arrow_down.png */; };
+		7EB7FB5718DE7D0600BA7261 /* arrow_down1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EB7FB4518DE7D0600BA7261 /* arrow_down1.png */; };
+		7EB7FB5818DE7D0600BA7261 /* arrow_down1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EB7FB4618DE7D0600BA7261 /* arrow_down1@2x.png */; };
+		7EB7FB5918DE7D0600BA7261 /* arrow_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EB7FB4718DE7D0600BA7261 /* arrow_down@2x.png */; };
+		7EB7FB5A18DE7D0600BA7261 /* SICellSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7FB4918DE7D0600BA7261 /* SICellSelection.m */; };
+		7EB7FB5B18DE7D0600BA7261 /* SIMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7FB4B18DE7D0600BA7261 /* SIMenuButton.m */; };
+		7EB7FB5C18DE7D0600BA7261 /* SIMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7FB4D18DE7D0600BA7261 /* SIMenuCell.m */; };
+		7EB7FB5D18DE7D0600BA7261 /* SIMenuConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7FB4F18DE7D0600BA7261 /* SIMenuConfiguration.m */; };
+		7EB7FB5E18DE7D0600BA7261 /* SIMenuTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7FB5118DE7D0600BA7261 /* SIMenuTable.m */; };
+		7EB7FB5F18DE7D0600BA7261 /* SINavigationMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7FB5318DE7D0600BA7261 /* SINavigationMenuView.m */; };
+		7EB7FB6018DE7D0600BA7261 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7FB5518DE7D0600BA7261 /* UIColor+Extension.m */; };
 		7EC0E08618D352A30088CD7C /* ReferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC0E08518D352A30088CD7C /* ReferenceViewController.m */; };
 		7EC0E08918D353040088CD7C /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC0E08818D353040088CD7C /* WebViewController.m */; };
 		7EC0E08C18D35BC80088CD7C /* VideoTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC0E08B18D35BC80088CD7C /* VideoTutorialViewController.m */; };
@@ -222,6 +233,24 @@
 		7EA557E418D099C80087B0CB /* LHView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LHView.m; path = SSB/Controller/LHView.m; sourceTree = SOURCE_ROOT; };
 		7EA557F118D0A9750087B0CB /* AlarmlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlarmlViewController.h; path = Controller/AlarmlViewController.h; sourceTree = "<group>"; };
 		7EA557F218D0A9750087B0CB /* AlarmlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlarmlViewController.m; path = Controller/AlarmlViewController.m; sourceTree = "<group>"; };
+		7EB7FB4418DE7D0600BA7261 /* arrow_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_down.png; sourceTree = "<group>"; };
+		7EB7FB4518DE7D0600BA7261 /* arrow_down1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_down1.png; sourceTree = "<group>"; };
+		7EB7FB4618DE7D0600BA7261 /* arrow_down1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_down1@2x.png"; sourceTree = "<group>"; };
+		7EB7FB4718DE7D0600BA7261 /* arrow_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_down@2x.png"; sourceTree = "<group>"; };
+		7EB7FB4818DE7D0600BA7261 /* SICellSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICellSelection.h; sourceTree = "<group>"; };
+		7EB7FB4918DE7D0600BA7261 /* SICellSelection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SICellSelection.m; sourceTree = "<group>"; };
+		7EB7FB4A18DE7D0600BA7261 /* SIMenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMenuButton.h; sourceTree = "<group>"; };
+		7EB7FB4B18DE7D0600BA7261 /* SIMenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMenuButton.m; sourceTree = "<group>"; };
+		7EB7FB4C18DE7D0600BA7261 /* SIMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMenuCell.h; sourceTree = "<group>"; };
+		7EB7FB4D18DE7D0600BA7261 /* SIMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMenuCell.m; sourceTree = "<group>"; };
+		7EB7FB4E18DE7D0600BA7261 /* SIMenuConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMenuConfiguration.h; sourceTree = "<group>"; };
+		7EB7FB4F18DE7D0600BA7261 /* SIMenuConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMenuConfiguration.m; sourceTree = "<group>"; };
+		7EB7FB5018DE7D0600BA7261 /* SIMenuTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMenuTable.h; sourceTree = "<group>"; };
+		7EB7FB5118DE7D0600BA7261 /* SIMenuTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMenuTable.m; sourceTree = "<group>"; };
+		7EB7FB5218DE7D0600BA7261 /* SINavigationMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SINavigationMenuView.h; sourceTree = "<group>"; };
+		7EB7FB5318DE7D0600BA7261 /* SINavigationMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SINavigationMenuView.m; sourceTree = "<group>"; };
+		7EB7FB5418DE7D0600BA7261 /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
+		7EB7FB5518DE7D0600BA7261 /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
 		7EC0E08418D352A30088CD7C /* ReferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReferenceViewController.h; path = Controller/ReferenceViewController.h; sourceTree = "<group>"; };
 		7EC0E08518D352A30088CD7C /* ReferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReferenceViewController.m; path = Controller/ReferenceViewController.m; sourceTree = "<group>"; };
 		7EC0E08718D353040088CD7C /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebViewController.h; path = Controller/WebViewController.h; sourceTree = "<group>"; };
@@ -489,6 +518,7 @@
 		7EA557D218D07C7C0087B0CB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7EB7FB4218DE7D0600BA7261 /* NavigationMenuView */,
 				7E2BC40C18D9EB1C00F5A4B0 /* MDSpreadView */,
 				7EA557D318D094DE0087B0CB /* SVControl */,
 				7EA557E018D099B10087B0CB /* GSView.h */,
@@ -546,6 +576,40 @@
 				7E65BB6518D1F38000872990 /* MenuItem.m */,
 			);
 			name = DataModel;
+			sourceTree = "<group>";
+		};
+		7EB7FB4218DE7D0600BA7261 /* NavigationMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				7EB7FB4318DE7D0600BA7261 /* images */,
+				7EB7FB4818DE7D0600BA7261 /* SICellSelection.h */,
+				7EB7FB4918DE7D0600BA7261 /* SICellSelection.m */,
+				7EB7FB4A18DE7D0600BA7261 /* SIMenuButton.h */,
+				7EB7FB4B18DE7D0600BA7261 /* SIMenuButton.m */,
+				7EB7FB4C18DE7D0600BA7261 /* SIMenuCell.h */,
+				7EB7FB4D18DE7D0600BA7261 /* SIMenuCell.m */,
+				7EB7FB4E18DE7D0600BA7261 /* SIMenuConfiguration.h */,
+				7EB7FB4F18DE7D0600BA7261 /* SIMenuConfiguration.m */,
+				7EB7FB5018DE7D0600BA7261 /* SIMenuTable.h */,
+				7EB7FB5118DE7D0600BA7261 /* SIMenuTable.m */,
+				7EB7FB5218DE7D0600BA7261 /* SINavigationMenuView.h */,
+				7EB7FB5318DE7D0600BA7261 /* SINavigationMenuView.m */,
+				7EB7FB5418DE7D0600BA7261 /* UIColor+Extension.h */,
+				7EB7FB5518DE7D0600BA7261 /* UIColor+Extension.m */,
+			);
+			name = NavigationMenuView;
+			path = Controller/NavigationMenuView;
+			sourceTree = "<group>";
+		};
+		7EB7FB4318DE7D0600BA7261 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				7EB7FB4418DE7D0600BA7261 /* arrow_down.png */,
+				7EB7FB4518DE7D0600BA7261 /* arrow_down1.png */,
+				7EB7FB4618DE7D0600BA7261 /* arrow_down1@2x.png */,
+				7EB7FB4718DE7D0600BA7261 /* arrow_down@2x.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 		7EC0E09B18D5F56C0088CD7C /* ASIHTTPRequest */ = {
@@ -748,6 +812,7 @@
 				7E2BC46118D9EB1C00F5A4B0 /* MDSpreadViewCornerTopRight.png in Resources */,
 				7E2BC45F18D9EB1C00F5A4B0 /* MDSpreadViewCornerTopLeftSelected.png in Resources */,
 				7E2BC46218D9EB1C00F5A4B0 /* MDSpreadViewCornerTopRight@2x.png in Resources */,
+				7EB7FB5618DE7D0600BA7261 /* arrow_down.png in Resources */,
 				7E2BC44A18D9EB1C00F5A4B0 /* MDSpreadViewCell@2x.png in Resources */,
 				7EA557AE18D07B360087B0CB /* Main_iPad.storyboard in Resources */,
 				7EA557B318D07B360087B0CB /* Images.xcassets in Resources */,
@@ -762,15 +827,18 @@
 				7E2BC46618D9EB1C00F5A4B0 /* MDSpreadViewRowHeaderBottom@2x.png in Resources */,
 				7E2BC45218D9EB1C00F5A4B0 /* MDSpreadViewColumnHeaderRight@2x.png in Resources */,
 				7E2BC45518D9EB1C00F5A4B0 /* MDSpreadViewCornerBottomLeft.png in Resources */,
+				7EB7FB5818DE7D0600BA7261 /* arrow_down1@2x.png in Resources */,
 				7E2BC46018D9EB1C00F5A4B0 /* MDSpreadViewCornerTopLeftSelected@2x.png in Resources */,
 				7E2BC46418D9EB1C00F5A4B0 /* MDSpreadViewCornerTopRightSelected@2x.png in Resources */,
 				7EA557AB18D07B360087B0CB /* Main_iPhone.storyboard in Resources */,
+				7EB7FB5918DE7D0600BA7261 /* arrow_down@2x.png in Resources */,
 				7E2BC46B18D9EB1C00F5A4B0 /* MDSpreadViewRowHeaderTopSelected.png in Resources */,
 				7E2BC46818D9EB1C00F5A4B0 /* MDSpreadViewRowHeaderBottomSelected@2x.png in Resources */,
 				7E2BC46C18D9EB1C00F5A4B0 /* MDSpreadViewRowHeaderTopSelected@2x.png in Resources */,
 				7E2BC45E18D9EB1C00F5A4B0 /* MDSpreadViewCornerTopLeft@2x.png in Resources */,
 				7EA557A218D07B360087B0CB /* InfoPlist.strings in Resources */,
 				7E2BC45318D9EB1C00F5A4B0 /* MDSpreadViewColumnHeaderRightSelected.png in Resources */,
+				7EB7FB5718DE7D0600BA7261 /* arrow_down1.png in Resources */,
 				7E2BC45918D9EB1C00F5A4B0 /* MDSpreadViewCornerBottomRight.png in Resources */,
 				7E2BC45A18D9EB1C00F5A4B0 /* MDSpreadViewCornerBottomRight@2x.png in Resources */,
 				7E2BC45B18D9EB1C00F5A4B0 /* MDSpreadViewCornerBottomRightSelected.png in Resources */,
@@ -797,6 +865,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EB7FB5E18DE7D0600BA7261 /* SIMenuTable.m in Sources */,
 				7E2BC44618D9EB1C00F5A4B0 /* MDSpreadViewCellCornerHeaderBackground.m in Sources */,
 				7EA557DA18D094DE0087B0CB /* SVGloble.m in Sources */,
 				7E2BC44318D9EB1C00F5A4B0 /* MDSpreadViewCell.m in Sources */,
@@ -805,9 +874,11 @@
 				7EC0E0DA18D5F56C0088CD7C /* ASIHTTPRequest.m in Sources */,
 				7EC0E0E618D5F56C0088CD7C /* ASIS3BucketObject.m in Sources */,
 				7EC0E0E018D5F56C0088CD7C /* ASICloudFilesContainerRequest.m in Sources */,
+				7EB7FB6018DE7D0600BA7261 /* UIColor+Extension.m in Sources */,
 				7EC0E0E118D5F56C0088CD7C /* ASICloudFilesContainerXMLParserDelegate.m in Sources */,
 				7EC0E0FF18D608CE0088CD7C /* GDataXMLNode.m in Sources */,
 				7EC0E0E718D5F56C0088CD7C /* ASIS3BucketRequest.m in Sources */,
+				7EB7FB5D18DE7D0600BA7261 /* SIMenuConfiguration.m in Sources */,
 				7EC0E0DE18D5F56C0088CD7C /* ASICloudFilesCDNRequest.m in Sources */,
 				7EC0E0D718D5F56C0088CD7C /* ASIDataDecompressor.m in Sources */,
 				7EC0E0EB18D5F56C0088CD7C /* Reachability.m in Sources */,
@@ -821,9 +892,11 @@
 				7EC0E0D618D5F56C0088CD7C /* ASIDataCompressor.m in Sources */,
 				7E2BC44218D9EB1C00F5A4B0 /* MDSpreadView.m in Sources */,
 				7EC0E0E318D5F56C0088CD7C /* ASICloudFilesObjectRequest.m in Sources */,
+				7EB7FB5C18DE7D0600BA7261 /* SIMenuCell.m in Sources */,
 				7E24EFE818D743F4006E2A5B /* DetailViewController.m in Sources */,
 				7EC0E0E818D5F56C0088CD7C /* ASIS3ObjectRequest.m in Sources */,
 				7EC0E0DF18D5F56C0088CD7C /* ASICloudFilesContainer.m in Sources */,
+				7EB7FB5A18DE7D0600BA7261 /* SICellSelection.m in Sources */,
 				7E2BC44418D9EB1C00F5A4B0 /* MDSpreadViewCellBackground.m in Sources */,
 				7EC0E0D518D5F56C0088CD7C /* ASIAuthenticationDialog.m in Sources */,
 				7EC0E0EA18D5F56C0088CD7C /* ASIS3ServiceRequest.m in Sources */,
@@ -834,6 +907,7 @@
 				7EA557F318D0A9750087B0CB /* AlarmlViewController.m in Sources */,
 				7EC0E09818D35DEF0088CD7C /* PhotoViewController.m in Sources */,
 				7EA557DB18D094DE0087B0CB /* SVRootScrollView.m in Sources */,
+				7EB7FB5B18DE7D0600BA7261 /* SIMenuButton.m in Sources */,
 				7E2BC44818D9EB1C00F5A4B0 /* MDSpreadViewHeaderCell.m in Sources */,
 				7EA557E518D099C80087B0CB /* LHView.m in Sources */,
 				7EC0E09218D35CE50088CD7C /* WaterLevelViewController.m in Sources */,
@@ -845,6 +919,7 @@
 				7EC0E09518D35D680088CD7C /* WeatherViewController.m in Sources */,
 				7EC0E08918D353040088CD7C /* WebViewController.m in Sources */,
 				7EA557D118D07C730087B0CB /* MainViewController.m in Sources */,
+				7EB7FB5F18DE7D0600BA7261 /* SINavigationMenuView.m in Sources */,
 				7EA557DC18D094DE0087B0CB /* SVTopScrollView.m in Sources */,
 				7EC0E08618D352A30088CD7C /* ReferenceViewController.m in Sources */,
 				7E65BB6918D202E000872990 /* RadarView.m in Sources */,
