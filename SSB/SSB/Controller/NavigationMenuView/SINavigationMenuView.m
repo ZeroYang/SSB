@@ -22,6 +22,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         frame.origin.y += 1.0;
+        frame.origin.x = -80;
         self.menuButton = [[SIMenuButton alloc] initWithFrame:frame];
         self.menuButton.title.text = title;
         [self.menuButton addTarget:self action:@selector(onHandleMenuTap:) forControlEvents:UIControlEventTouchUpInside];
@@ -51,10 +52,12 @@
 - (void)onShowMenu
 {
     if (!self.table) {
-//        UIWindow *mainWindow = [[UIApplication sharedApplication] keyWindow];
-//        CGRect frame = mainWindow.frame;
-//        frame.origin.y += self.frame.size.height + [[UIApplication sharedApplication] statusBarFrame].size.height;
-        self.table = [[SIMenuTable alloc] initWithFrame:self.menuContainer.frame items:self.items];
+        UIWindow *mainWindow = [[UIApplication sharedApplication] keyWindow];
+        CGRect frame = mainWindow.frame;
+        //frame.origin.y = -64;
+        //CGRect frame = self.menuContainer.frame;
+
+        self.table = [[SIMenuTable alloc] initWithFrame:frame items:self.items];
         self.table.menuDelegate = self;
     }
     [self.menuContainer addSubview:self.table];

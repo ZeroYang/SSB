@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SINavigationMenuView.h"
 
-@interface VideoTutorialViewController : UIViewController
+@interface VideoTutorialViewController : UIViewController <SINavigationMenuDelegate,UIScrollViewDelegate>
 
 @end
