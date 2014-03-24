@@ -125,6 +125,8 @@
 		7EC0E0FC18D6078E0088CD7C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EC0E0FB18D6078E0088CD7C /* libz.dylib */; };
 		7EC0E0FF18D608CE0088CD7C /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC0E0FE18D608CE0088CD7C /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7EC0E10118D609620088CD7C /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EC0E10018D609620088CD7C /* libxml2.dylib */; };
+		7EF26CC118DFFA56008B1524 /* RainFallLineChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF26CC018DFFA56008B1524 /* RainFallLineChartViewController.m */; };
+		7EF26CC418DFFA82008B1524 /* WaterLevelLineChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF26CC318DFFA82008B1524 /* WaterLevelLineChartViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -325,6 +327,10 @@
 		7EC0E0FD18D608CE0088CD7C /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
 		7EC0E0FE18D608CE0088CD7C /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
 		7EC0E10018D609620088CD7C /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		7EF26CBF18DFFA56008B1524 /* RainFallLineChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RainFallLineChartViewController.h; path = Controller/RainFallLineChartViewController.h; sourceTree = "<group>"; };
+		7EF26CC018DFFA56008B1524 /* RainFallLineChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RainFallLineChartViewController.m; path = Controller/RainFallLineChartViewController.m; sourceTree = "<group>"; };
+		7EF26CC218DFFA82008B1524 /* WaterLevelLineChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaterLevelLineChartViewController.h; path = Controller/WaterLevelLineChartViewController.h; sourceTree = "<group>"; };
+		7EF26CC318DFFA82008B1524 /* WaterLevelLineChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WaterLevelLineChartViewController.m; path = Controller/WaterLevelLineChartViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -551,6 +557,10 @@
 				7EC0E09718D35DEF0088CD7C /* PhotoViewController.m */,
 				7E24EFE618D743F4006E2A5B /* DetailViewController.h */,
 				7E24EFE718D743F4006E2A5B /* DetailViewController.m */,
+				7EF26CBF18DFFA56008B1524 /* RainFallLineChartViewController.h */,
+				7EF26CC018DFFA56008B1524 /* RainFallLineChartViewController.m */,
+				7EF26CC218DFFA82008B1524 /* WaterLevelLineChartViewController.h */,
+				7EF26CC318DFFA82008B1524 /* WaterLevelLineChartViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -869,6 +879,7 @@
 				7E2BC44618D9EB1C00F5A4B0 /* MDSpreadViewCellCornerHeaderBackground.m in Sources */,
 				7EA557DA18D094DE0087B0CB /* SVGloble.m in Sources */,
 				7E2BC44318D9EB1C00F5A4B0 /* MDSpreadViewCell.m in Sources */,
+				7EF26CC118DFFA56008B1524 /* RainFallLineChartViewController.m in Sources */,
 				7EA557B118D07B360087B0CB /* ViewController.m in Sources */,
 				7EC0E0DD18D5F56C0088CD7C /* ASIWebPageRequest.m in Sources */,
 				7EC0E0DA18D5F56C0088CD7C /* ASIHTTPRequest.m in Sources */,
@@ -901,6 +912,7 @@
 				7EC0E0D518D5F56C0088CD7C /* ASIAuthenticationDialog.m in Sources */,
 				7EC0E0EA18D5F56C0088CD7C /* ASIS3ServiceRequest.m in Sources */,
 				7EC0E0E918D5F56C0088CD7C /* ASIS3Request.m in Sources */,
+				7EF26CC418DFFA82008B1524 /* WaterLevelLineChartViewController.m in Sources */,
 				7EA557E218D099B10087B0CB /* GSView.m in Sources */,
 				7E65BB6618D1F38000872990 /* MenuItem.m in Sources */,
 				7EC0E08C18D35BC80088CD7C /* VideoTutorialViewController.m in Sources */,
