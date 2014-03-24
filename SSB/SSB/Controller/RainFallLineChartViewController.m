@@ -46,7 +46,7 @@
     menu.items = @[@"1小时降雨量", @"3小时降雨量", @"6小时降雨量", @"12小时降雨量", @"24小时降雨量"];
     menu.delegate = self;
     self.navigationItem.titleView = menu;
-    locationId = @"62009600";
+
     [self getData];
 }
 

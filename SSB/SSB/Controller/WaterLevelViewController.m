@@ -15,6 +15,7 @@
     NSMutableArray *ctitleList;
     NSArray *rtitleList;
     NSMutableArray *dataList;
+    NSMutableArray *locationIds;
 }
 @end
 
@@ -40,6 +41,7 @@
     rtitleList = @[@"最近记录时间", @"最近记录水位", @"8时水位", @"20时降雨量"];
     ctitleList = [[NSMutableArray alloc] init];
     dataList = [[NSMutableArray alloc] init];
+    locationIds = [[NSMutableArray alloc] init];
     
     spreadView = [[MDSpreadView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:spreadView];
@@ -90,6 +92,8 @@
         if ([components count] < 1) {
             return;
         }
+        //locationId
+        [locationIds addObject:[components objectAtIndex:0]];
         //标题
         [ctitleList addObject:[components objectAtIndex:4]];
         NSMutableArray *rowDatas = [[NSMutableArray alloc] init];
@@ -221,6 +225,7 @@
     NSLog(@"Selected %@ x %@", rowPath, columnPath);
     
     WaterLevelLineChartViewController *lineChart = [[WaterLevelLineChartViewController alloc] init];
+    lineChart.locationId  = [locationIds objectAtIndex:rowPath.row];
     [self.navigationController pushViewController:lineChart animated:YES];
 }
 
