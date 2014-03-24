@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SINavigationMenuView.h"
+#import "ASIHTTPRequest.h"
 
-@interface WaterLevelLineChartViewController : UIViewController
+@interface WaterLevelLineChartViewController : UIViewController<SINavigationMenuDelegate,ASIHTTPRequestDelegate>
+
+@property(nonatomic,strong) NSString *locationId;
 
 @end

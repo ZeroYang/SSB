@@ -199,6 +199,7 @@
 		7E65BB6518D1F38000872990 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuItem.m; path = DataModel/MenuItem.m; sourceTree = "<group>"; };
 		7E65BB6718D202E000872990 /* RadarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadarView.h; sourceTree = "<group>"; };
 		7E65BB6818D202E000872990 /* RadarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadarView.m; sourceTree = "<group>"; };
+		7EA5356218E0632800250E5C /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		7EA5579418D07B360087B0CB /* SSB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EA5579718D07B360087B0CB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7EA5579918D07B360087B0CB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -561,6 +562,7 @@
 				7EF26CC018DFFA56008B1524 /* RainFallLineChartViewController.m */,
 				7EF26CC218DFFA82008B1524 /* WaterLevelLineChartViewController.h */,
 				7EF26CC318DFFA82008B1524 /* WaterLevelLineChartViewController.m */,
+				7EA5356218E0632800250E5C /* Constant.h */,
 			);
 			name = Controller;
 			sourceTree = "<group>";

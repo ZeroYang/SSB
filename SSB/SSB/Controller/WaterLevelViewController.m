@@ -8,6 +8,7 @@
 
 #import "WaterLevelViewController.h"
 #import "WebServiceHelper.h"
+#import "WaterLevelLineChartViewController.h"
 
 @interface WaterLevelViewController ()
 {
@@ -218,6 +219,9 @@
 {
     [spreadView deselectCellForRowAtIndexPath:rowPath forColumnAtIndexPath:columnPath animated:YES];
     NSLog(@"Selected %@ x %@", rowPath, columnPath);
+    
+    WaterLevelLineChartViewController *lineChart = [[WaterLevelLineChartViewController alloc] init];
+    [self.navigationController pushViewController:lineChart animated:YES];
 }
 
 - (MDSpreadViewSelection *)spreadView:(MDSpreadView *)aSpreadView willSelectCellForSelection:(MDSpreadViewSelection *)selection

@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SINavigationMenuView.h"
+#import "ASIHTTPRequest.h"
 
-@interface RainFallLineChartViewController : UIViewController
+@interface RainFallLineChartViewController : UIViewController<SINavigationMenuDelegate,ASIHTTPRequestDelegate>
+
+@property(nonatomic,strong) NSString *locationId;
 
 @end

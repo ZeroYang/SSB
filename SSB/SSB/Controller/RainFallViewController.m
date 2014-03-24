@@ -8,6 +8,7 @@
 
 #import "RainFallViewController.h"
 #import "WebServiceHelper.h"
+#import "RainFallLineChartViewController.h"
 
 
 @interface RainFallViewController ()
@@ -213,6 +214,9 @@
 {
     [spreadView deselectCellForRowAtIndexPath:rowPath forColumnAtIndexPath:columnPath animated:YES];
     NSLog(@"Selected %@ x %@", rowPath, columnPath);
+    
+    RainFallLineChartViewController *lineChart = [[RainFallLineChartViewController alloc] init];
+    [self.navigationController pushViewController:lineChart animated:YES];
 }
 
 - (MDSpreadViewSelection *)spreadView:(MDSpreadView *)aSpreadView willSelectCellForSelection:(MDSpreadViewSelection *)selection

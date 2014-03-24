@@ -51,6 +51,40 @@
     return theRequest;
 }
 
++ (ASIHTTPRequest *)getASISOAP11Request:(NSString *) WebURL
+                         webServiceFile:(NSString *) wsFile
+                           xmlNameSpace:(NSString *) xmlNS
+                              arguments:(NSString *) args
+                                 Action:(NSString *) action
+{
+
+    NSString *soapMsg = [NSString stringWithFormat:@"<?xml version=\"1.0\" encoding=\"utf-8\"?>\
+                         <soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\
+                         <soap:Body>\
+                         <getData xmlns=\"http://tempuri.org/\">\
+                         <location>%@</location>\
+                         </getData>\
+                         </soap:Body>\
+                         </soap:Envelope>", args];
+    
+    //请求发送到的路径
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", WebURL, wsFile]];
+    
+    ASIHTTPRequest * theRequest = [ASIHTTPRequest requestWithURL:url];
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMsg length]];
+    
+    //以下对请求信息添加属性前四句是必有的，第五句是soap信息。
+    //[theRequest addRequestHeader:@"Host" value:@"61.184.84.212"];
+    [theRequest addRequestHeader:@"Content-Type" value:@"text/xml; charset=utf-8"];
+    [theRequest addRequestHeader:@"SOAPAction" value:[NSString stringWithFormat:@"%@%@", xmlNS,action]];
+    
+    [theRequest addRequestHeader:@"Content-Length" value:msgLength];
+    [theRequest setRequestMethod:@"POST"];
+    [theRequest appendPostData:[soapMsg dataUsingEncoding:NSUTF8StringEncoding]];
+    [theRequest setDefaultResponseEncoding:NSUTF8StringEncoding];
+    
+    return theRequest;
+}
 /**
  解析webservice返回的XML成一个NSDictionary
  参数：content ,要解析的数据

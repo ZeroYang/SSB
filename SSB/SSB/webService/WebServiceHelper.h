@@ -16,6 +16,11 @@
                            xmlNameSpace:(NSString *) xmlNS
                                  Action:(NSString *) action;
 
++ (ASIHTTPRequest *)getASISOAP11Request:(NSString *) WebURL
+                         webServiceFile:(NSString *) wsFile
+                           xmlNameSpace:(NSString *) xmlNS
+                              arguments:(NSString *) args
+                                 Action:(NSString *) action;
 
 + (NSDictionary *)getWebServiceXMLResult:(NSString *) content xpath:(NSString *)path;
 

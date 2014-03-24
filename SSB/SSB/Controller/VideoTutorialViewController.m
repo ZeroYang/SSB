@@ -7,11 +7,7 @@
 //
 
 #import "VideoTutorialViewController.h"
-
-#define STATUS_BAR      20
-#define SCREEN_WIDTH    ([[UIScreen mainScreen] bounds].size.width)
-#define SCREEN_HEIGHT   ([[UIScreen mainScreen] bounds].size.height)
-#define NAV_BAR         44
+#import "Constant.h"
 
 #define SHANHONG_TOTAL_PAGE                 (12)
 #define SHANHONG_DEFENSE_TOTAL_PAGE         (3)
