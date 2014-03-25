@@ -140,6 +140,7 @@ static inline float radians(double degrees) {
 -(void)stopSweep
 {
     [shaplayer removeAnimationForKey:@"key"];
+    [shaplayer removeFromSuperlayer];
 }
 
 @end

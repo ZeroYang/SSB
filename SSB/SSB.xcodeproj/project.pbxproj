@@ -54,6 +54,7 @@
 		7E65BB6318D1F2A600872990 /* MenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E65BB6218D1F2A600872990 /* MenuItemView.m */; };
 		7E65BB6618D1F38000872990 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E65BB6518D1F38000872990 /* MenuItem.m */; };
 		7E65BB6918D202E000872990 /* RadarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E65BB6818D202E000872990 /* RadarView.m */; };
+		7EA5356618E0763000250E5C /* FYChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA5356518E0763000250E5C /* FYChartView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7EA5579818D07B360087B0CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EA5579718D07B360087B0CB /* Foundation.framework */; };
 		7EA5579A18D07B360087B0CB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EA5579918D07B360087B0CB /* CoreGraphics.framework */; };
 		7EA5579C18D07B360087B0CB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EA5579B18D07B360087B0CB /* UIKit.framework */; };
@@ -200,6 +201,8 @@
 		7E65BB6718D202E000872990 /* RadarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadarView.h; sourceTree = "<group>"; };
 		7E65BB6818D202E000872990 /* RadarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadarView.m; sourceTree = "<group>"; };
 		7EA5356218E0632800250E5C /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		7EA5356418E0763000250E5C /* FYChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYChartView.h; sourceTree = "<group>"; };
+		7EA5356518E0763000250E5C /* FYChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYChartView.m; sourceTree = "<group>"; };
 		7EA5579418D07B360087B0CB /* SSB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EA5579718D07B360087B0CB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7EA5579918D07B360087B0CB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -437,6 +440,15 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		7EA5356318E0763000250E5C /* FYChartView */ = {
+			isa = PBXGroup;
+			children = (
+				7EA5356418E0763000250E5C /* FYChartView.h */,
+				7EA5356518E0763000250E5C /* FYChartView.m */,
+			);
+			path = FYChartView;
+			sourceTree = "<group>";
+		};
 		7EA5578B18D07B360087B0CB = {
 			isa = PBXGroup;
 			children = (
@@ -525,6 +537,7 @@
 		7EA557D218D07C7C0087B0CB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7EA5356318E0763000250E5C /* FYChartView */,
 				7EB7FB4218DE7D0600BA7261 /* NavigationMenuView */,
 				7E2BC40C18D9EB1C00F5A4B0 /* MDSpreadView */,
 				7EA557D318D094DE0087B0CB /* SVControl */,
@@ -897,6 +910,7 @@
 				7EC0E0EB18D5F56C0088CD7C /* Reachability.m in Sources */,
 				7EC0E0E218D5F56C0088CD7C /* ASICloudFilesObject.m in Sources */,
 				7EC0E0E418D5F56C0088CD7C /* ASICloudFilesRequest.m in Sources */,
+				7EA5356618E0763000250E5C /* FYChartView.m in Sources */,
 				7EC0E0DC18D5F56C0088CD7C /* ASINetworkQueue.m in Sources */,
 				7EC0E0D818D5F56C0088CD7C /* ASIDownloadCache.m in Sources */,
 				7EC0E0E518D5F56C0088CD7C /* ASIS3Bucket.m in Sources */,
