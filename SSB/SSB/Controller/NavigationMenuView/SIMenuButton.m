@@ -28,7 +28,7 @@
         self.title = [[UILabel alloc] initWithFrame:frame];
         self.title.textAlignment = NSTextAlignmentCenter;
         self.title.backgroundColor = [UIColor clearColor];
-        self.title.textColor = [UIColor whiteColor];
+        self.title.textColor = [UIColor blackColor];
         self.title.font = [UIFont boldSystemFontOfSize:20.0];
         self.title.shadowColor = [UIColor darkGrayColor];
         self.title.shadowOffset = CGSizeMake(0, -1);

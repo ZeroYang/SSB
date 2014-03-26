@@ -10,10 +10,23 @@
 #import "Constant.h"
 #import "WebServiceHelper.h"
 #import "FYChartView.h"
+#import "APDocument.h"
+#import "APElement.h"
 
 #define CHART_HEIGHT        (300)
 
 @interface RainFallLineChartViewController ()<FYChartViewDataSource>
+{
+    NSString *location;
+    NSMutableArray *sum1hValues;
+    NSMutableArray *sum3hValues;
+    NSMutableArray *sum6hValues;
+    NSMutableArray *sum12hValues;
+    NSMutableArray *sum24hValues;
+    NSMutableArray *waterLevelValues;
+    NSMutableArray *dayTimes;
+    
+}
 
 @property (nonatomic, strong) FYChartView *chartView;
 @property (nonatomic, strong) NSArray *values;
@@ -45,6 +58,16 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+
+    sum1hValues         = [[NSMutableArray alloc] init];
+    sum3hValues         = [[NSMutableArray alloc] init];
+    sum6hValues         = [[NSMutableArray alloc] init];
+    sum12hValues        = [[NSMutableArray alloc] init];
+    sum24hValues        = [[NSMutableArray alloc] init];
+    waterLevelValues    = [[NSMutableArray alloc] init];
+    dayTimes            = [[NSMutableArray alloc] init];
+    
     //nav menu
     CGRect frame = CGRectMake(0.0, 0.0, SCREEN_WIDTH, NAV_BAR);
     SINavigationMenuView *menu = [[SINavigationMenuView alloc] initWithFrame:frame title:@"1小时降雨量"];
@@ -57,21 +80,13 @@
     //linechart
     UIScrollView * root= [[UIScrollView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:root];
-    #define ARC4RANDOM_MAX  0x100000000
-    NSMutableArray *array = [NSMutableArray array];
-    for (int i = 0; i < 50; i++)
-    {
-        double val = floorf(((double)arc4random() / ARC4RANDOM_MAX) * 100.0f);
-        [array addObject:[NSNumber numberWithDouble:val]];
-    }
-    self.values = array;
     
     self.chartView = [[FYChartView alloc] initWithFrame:CGRectMake(0.0f, (SCREEN_HEIGHT - CHART_HEIGHT)/4, 2*320.0f, CHART_HEIGHT)];
     self.chartView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.chartView.rectangleLineColor = [UIColor grayColor];
     self.chartView.lineColor = [UIColor blueColor];
     self.chartView.dataSource = self;
-    //[self.view addSubview:self.chartView];
+
     
     [root addSubview:self.chartView];
     
@@ -93,15 +108,27 @@
     menu.menuButton.title.text = [menu.items objectAtIndex:index];
     
     if (0 == index) {
-
+        self.values = sum1hValues;
     }
     
     if (1 == index) {
-
+        self.values = sum3hValues;
     }
     
     if (2 == index) {
-
+        self.values = sum6hValues;
+    }
+    
+    if (3 == index) {
+        self.values = sum12hValues;
+    }
+    
+    if (4 == index) {
+        self.values = sum24hValues;
+    }
+    
+    if (5 == index) {
+        self.values = waterLevelValues;
     }
     
     [self.chartView reloadData];
@@ -132,6 +159,12 @@
     NSDictionary *dic =[WebServiceHelper getWebServiceXMLResult:xmlResult xpath:@"getDataResult"];
     
     NSString *result = [dic objectForKey:@"text"];
+    result = [result stringByReplacingOccurrencesOfString:locationId withString:@"locationId"];
+
+    [self parser:result];
+    
+    self.values = sum1hValues;
+    [self.chartView reloadData];
 }
 
 #pragma mark - FYChartViewDataSource
@@ -151,13 +184,8 @@
 //horizontal title at index
 - (NSString *)chartView:(FYChartView *)chartView horizontalTitleAtIndex:(NSInteger)index
 {
-    //    if (index == 0 || index == self.values.count - 1)
-    //    {
-    //        return [NSString stringWithFormat:@"%.2f", [((NSNumber *)self.values[index]) floatValue]];
-    //    }
-    
     if (0 == index%5) {
-        return [NSString stringWithFormat:@"%d",index];
+        return [NSString stringWithFormat:@"%@",[dayTimes objectAtIndex:index]];
     }
     return nil;
 }
@@ -181,7 +209,7 @@
 //description view at index
 - (UIView *)chartView:(FYChartView *)chartView descriptionViewAtIndex:(NSInteger)index
 {
-    NSString *description = [NSString stringWithFormat:@"index=%d\nvalue=%.2f", index,
+    NSString *description = [NSString stringWithFormat:@"time=%@\nvalue=%.2fmm", [dayTimes objectAtIndex:index],
                              [((NSNumber *)self.values[index]) floatValue]];
     
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"chart_ description_bg"]];
@@ -198,5 +226,56 @@
     return imageView;
 }
 
+
+-(void) parser:(NSString *)str
+{
+    APDocument *apdoc = [[APDocument alloc] initWithString:str];
+    APElement *rootElement = [apdoc rootElement];
+    
+    APElement *nameEle = [rootElement firstChildElementNamed:@"name"];
+    location = [nameEle value];//获取监测点的名称
+    
+    NSArray *elemEles = [rootElement childElements:@"elem"];
+    
+    
+    
+    for (APElement *elemEle in elemEles) {
+        
+        APElement *countEle = [elemEle firstChildElementNamed:@"count"];
+
+        
+        APElement *timeEle = [elemEle firstChildElementNamed:@"time"];
+        if (timeEle)
+            [dayTimes addObject:[timeEle value]];
+
+        
+        APElement *Sum1hfallEle = [elemEle firstChildElementNamed:@"Sum1hfall"];
+        if (Sum1hfallEle)
+            [sum1hValues addObject:[Sum1hfallEle value]];
+        
+        APElement *Sum1hfal3Ele = [elemEle firstChildElementNamed:@"Sum3hfall"];
+        if (Sum1hfal3Ele)
+            [sum3hValues addObject:[Sum1hfal3Ele value]];
+        
+        APElement *Sum6hfallEle = [elemEle firstChildElementNamed:@"Sum6hfall"];
+        if (Sum6hfallEle)
+            [sum6hValues addObject:[Sum6hfallEle value]];
+        
+        APElement *Sum12hfallEle = [elemEle firstChildElementNamed:@"Sum12hfall"];
+        if (Sum12hfallEle)
+            [sum12hValues addObject:[Sum12hfallEle value]];
+        
+        APElement *Sum24hfallEle = [elemEle firstChildElementNamed:@"Sum24hfall"];
+        if (Sum24hfallEle)
+            [sum24hValues addObject:[Sum24hfallEle value]];
+        
+        
+        APElement *WaterLevelEle = [elemEle firstChildElementNamed:@"WaterLevel"];
+        if (WaterLevelEle)
+            [waterLevelValues addObject:[WaterLevelEle value]];
+
+    }
+    
+}
 
 @end

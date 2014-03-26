@@ -175,7 +175,7 @@
 */
 - (NSString*)value {
 	if (value == nil)
-		return nil;
+		return @"";
 	else
 		return [NSString stringWithString:value];
 }

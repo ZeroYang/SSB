@@ -49,11 +49,12 @@
 {
     if (isLoaded)   return;
     
-    //draw rectangle line and vertical text
-    [self drawRectangleAndVerticalText:rect];
-    
     //draw data line
     [self drawValueLine:rect];
+    
+    //draw rectangle line and vertical text
+    [self drawRectangleAndVerticalText:rect];
+
     
     isLoaded = YES;
 }
@@ -209,7 +210,7 @@
     retPoint.x = index * horizontalItemWidth + verticalTextSize.width;
     retPoint.y = self.frame.size.height - verticalTextSize.height - value * verticalItemHeight;
     
-    retPoint.y = isnan(retPoint.y)  ? self.frame.size.height - verticalTextSize.height : retPoint.y;
+    retPoint.y = isnan(retPoint.y)  ? self.frame.size.height - verticalTextSize.height - 1 : retPoint.y;
     return retPoint;
 }
 
