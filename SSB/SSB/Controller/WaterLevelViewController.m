@@ -9,6 +9,7 @@
 #import "WaterLevelViewController.h"
 #import "WebServiceHelper.h"
 #import "WaterLevelLineChartViewController.h"
+#import "SUIActivityIndicatorView.h"
 
 @interface WaterLevelViewController ()
 {
@@ -16,6 +17,7 @@
     NSArray *rtitleList;
     NSMutableArray *dataList;
     NSMutableArray *locationIds;
+    SUIActivityIndicatorView *activityView;
 }
 @end
 
@@ -55,6 +57,8 @@
     
     
     ///////////////////////////////////
+    activityView = [[SUIActivityIndicatorView alloc] init];
+    [activityView showWaitingInViewController:self];
     ASIHTTPRequest *request = [WebServiceHelper getASISOAP11Request:@"http://61.184.84.212:10000/" webServiceFile:@"webService.asmx" xmlNameSpace:@" http://tempuri.org/" Action:@"getDataApp_Shuiwenzhantable"];
     
     request.delegate = self;
@@ -71,11 +75,12 @@
 {
     NSError *error = [request error];
     NSLog(@"requestFailed error:%@", error);
+    [activityView hideWaiting];
 }
 
 -(void) requestFinished:(ASIHTTPRequest *)request
 {
-    
+    [activityView hideWaiting];
     NSString *xmlResult = [[NSString alloc] initWithData:[request responseData] encoding:NSUTF8StringEncoding];
     NSLog(@"%@", xmlResult);
     

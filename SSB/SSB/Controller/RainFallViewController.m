@@ -9,7 +9,7 @@
 #import "RainFallViewController.h"
 #import "WebServiceHelper.h"
 #import "RainFallLineChartViewController.h"
-
+#import "SUIActivityIndicatorView.h"
 
 @interface RainFallViewController ()
 {
@@ -17,6 +17,7 @@
     NSArray *rtitleList;
     NSMutableArray *dataList;
     NSMutableArray *locationIds;
+    SUIActivityIndicatorView *activityView;
 }
 @end
 
@@ -53,6 +54,8 @@
     [spreadView reloadData];
     
     //
+    activityView = [[SUIActivityIndicatorView alloc] init];
+    [activityView showWaitingInViewController:self];
     ASIHTTPRequest *request = [WebServiceHelper getASISOAP11Request:@"http://61.184.84.212:10000/" webServiceFile:@"webService.asmx" xmlNameSpace:@" http://tempuri.org/" Action:@"getDataApp_Yuliangtable"];
     
     request.delegate = self;
@@ -69,10 +72,12 @@
 {
     NSError *error = [request error];
     NSLog(@"requestFailed error:%@", error);
+    [activityView hideWaiting];
 }
 
 -(void) requestFinished:(ASIHTTPRequest *)request
 {
+    [activityView hideWaiting];
     NSString *xmlResult = [[NSString alloc] initWithData:[request responseData] encoding:NSUTF8StringEncoding];
     NSLog(@"%@", xmlResult);
     

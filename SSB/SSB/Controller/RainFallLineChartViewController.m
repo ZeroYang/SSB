@@ -12,6 +12,7 @@
 #import "FYChartView.h"
 #import "APDocument.h"
 #import "APElement.h"
+#import "SUIActivityIndicatorView.h"
 
 #define CHART_HEIGHT        (300)
 
@@ -25,6 +26,8 @@
     NSMutableArray *sum24hValues;
     NSMutableArray *waterLevelValues;
     NSMutableArray *dayTimes;
+    
+    SUIActivityIndicatorView *activityView;
     
 }
 
@@ -140,6 +143,8 @@
     ///////////////////////////////////
 //    ASIHTTPRequest *request = [WebServiceHelper getASISOAP11Request:@"http://61.184.84.212:10000/" webServiceFile:@"webService.asmx" xmlNameSpace:@" http://tempuri.org/" Action:@"getDataApp_Shuiwenzhantable"];
     
+    activityView = [[SUIActivityIndicatorView alloc] init];
+    [activityView showWaitingInViewController:self];
     ASIHTTPRequest *request = [WebServiceHelper getASISOAP11Request:@"http://61.184.84.212:10000/" webServiceFile:@"webService.asmx" xmlNameSpace:@" http://tempuri.org/" arguments:locationId Action:@"getData"];
     request.delegate = self;
     [request startAsynchronous];
@@ -149,6 +154,7 @@
 {
     NSError *error = [request error];
     NSLog(@"requestFailed error:%@", error);
+    [activityView hideWaiting];
 }
 
 -(void) requestFinished:(ASIHTTPRequest *)request
@@ -162,7 +168,7 @@
     result = [result stringByReplacingOccurrencesOfString:locationId withString:@"locationId"];
 
     [self parser:result];
-    
+    [activityView hideWaiting];
     self.values = sum1hValues;
     [self.chartView reloadData];
 }
