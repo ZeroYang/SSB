@@ -128,6 +128,9 @@
 		7EC0E10118D609620088CD7C /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EC0E10018D609620088CD7C /* libxml2.dylib */; };
 		7EF26CC118DFFA56008B1524 /* RainFallLineChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF26CC018DFFA56008B1524 /* RainFallLineChartViewController.m */; };
 		7EF26CC418DFFA82008B1524 /* WaterLevelLineChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF26CC318DFFA82008B1524 /* WaterLevelLineChartViewController.m */; };
+		7EFEC5B118E237D800F5227C /* APAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFEC5AB18E237D800F5227C /* APAttribute.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7EFEC5B218E237D800F5227C /* APDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFEC5AD18E237D800F5227C /* APDocument.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7EFEC5B318E237D800F5227C /* APElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFEC5AF18E237D800F5227C /* APElement.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -335,6 +338,13 @@
 		7EF26CC018DFFA56008B1524 /* RainFallLineChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RainFallLineChartViewController.m; path = Controller/RainFallLineChartViewController.m; sourceTree = "<group>"; };
 		7EF26CC218DFFA82008B1524 /* WaterLevelLineChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaterLevelLineChartViewController.h; path = Controller/WaterLevelLineChartViewController.h; sourceTree = "<group>"; };
 		7EF26CC318DFFA82008B1524 /* WaterLevelLineChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WaterLevelLineChartViewController.m; path = Controller/WaterLevelLineChartViewController.m; sourceTree = "<group>"; };
+		7EFEC5AA18E237D800F5227C /* APAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APAttribute.h; sourceTree = "<group>"; };
+		7EFEC5AB18E237D800F5227C /* APAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APAttribute.m; sourceTree = "<group>"; };
+		7EFEC5AC18E237D800F5227C /* APDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APDocument.h; sourceTree = "<group>"; };
+		7EFEC5AD18E237D800F5227C /* APDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APDocument.m; sourceTree = "<group>"; };
+		7EFEC5AE18E237D800F5227C /* APElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APElement.h; sourceTree = "<group>"; };
+		7EFEC5AF18E237D800F5227C /* APElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APElement.m; sourceTree = "<group>"; };
+		7EFEC5B018E237D800F5227C /* APXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APXML.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -487,6 +497,7 @@
 		7EA5579D18D07B360087B0CB /* SSB */ = {
 			isa = PBXGroup;
 			children = (
+				7EFEC5A918E237D800F5227C /* APXML */,
 				7EC0E0EF18D600790088CD7C /* XML */,
 				7EC0E09B18D5F56C0088CD7C /* ASIHTTPRequest */,
 				7EA557ED18D0A8260087B0CB /* DataModel */,
@@ -752,6 +763,20 @@
 			path = XML;
 			sourceTree = "<group>";
 		};
+		7EFEC5A918E237D800F5227C /* APXML */ = {
+			isa = PBXGroup;
+			children = (
+				7EFEC5AA18E237D800F5227C /* APAttribute.h */,
+				7EFEC5AB18E237D800F5227C /* APAttribute.m */,
+				7EFEC5AC18E237D800F5227C /* APDocument.h */,
+				7EFEC5AD18E237D800F5227C /* APDocument.m */,
+				7EFEC5AE18E237D800F5227C /* APElement.h */,
+				7EFEC5AF18E237D800F5227C /* APElement.m */,
+				7EFEC5B018E237D800F5227C /* APXML.h */,
+			);
+			path = APXML;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -892,6 +917,7 @@
 			files = (
 				7EB7FB5E18DE7D0600BA7261 /* SIMenuTable.m in Sources */,
 				7E2BC44618D9EB1C00F5A4B0 /* MDSpreadViewCellCornerHeaderBackground.m in Sources */,
+				7EFEC5B318E237D800F5227C /* APElement.m in Sources */,
 				7EA557DA18D094DE0087B0CB /* SVGloble.m in Sources */,
 				7E2BC44318D9EB1C00F5A4B0 /* MDSpreadViewCell.m in Sources */,
 				7EF26CC118DFFA56008B1524 /* RainFallLineChartViewController.m in Sources */,
@@ -899,6 +925,7 @@
 				7EC0E0DD18D5F56C0088CD7C /* ASIWebPageRequest.m in Sources */,
 				7EC0E0DA18D5F56C0088CD7C /* ASIHTTPRequest.m in Sources */,
 				7EC0E0E618D5F56C0088CD7C /* ASIS3BucketObject.m in Sources */,
+				7EFEC5B118E237D800F5227C /* APAttribute.m in Sources */,
 				7EC0E0E018D5F56C0088CD7C /* ASICloudFilesContainerRequest.m in Sources */,
 				7EB7FB6018DE7D0600BA7261 /* UIColor+Extension.m in Sources */,
 				7EC0E0E118D5F56C0088CD7C /* ASICloudFilesContainerXMLParserDelegate.m in Sources */,
@@ -918,6 +945,7 @@
 				7EC0E0DB18D5F56C0088CD7C /* ASIInputStream.m in Sources */,
 				7EC0E0D618D5F56C0088CD7C /* ASIDataCompressor.m in Sources */,
 				7E2BC44218D9EB1C00F5A4B0 /* MDSpreadView.m in Sources */,
+				7EFEC5B218E237D800F5227C /* APDocument.m in Sources */,
 				7EC0E0E318D5F56C0088CD7C /* ASICloudFilesObjectRequest.m in Sources */,
 				7EB7FB5C18DE7D0600BA7261 /* SIMenuCell.m in Sources */,
 				7E24EFE818D743F4006E2A5B /* DetailViewController.m in Sources */,
