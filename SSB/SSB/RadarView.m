@@ -19,6 +19,7 @@ static inline float radians(double degrees) {
 @interface RadarView ()
 {
     CAShapeLayer *shaplayer;
+    CAShapeLayer *pshaplayer;
     UIButton *sweepBtn;
     BOOL isSweep;
 }
@@ -26,6 +27,7 @@ static inline float radians(double degrees) {
 
 
 @implementation RadarView
+@synthesize delegate;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -90,24 +92,43 @@ static inline float radians(double degrees) {
 
 }
 
+-(void)drawPoint:(CGPoint)point
+{
+    [shaplayer removeFromSuperlayer];
+    
+    pshaplayer = [CAShapeLayer layer];
+    [pshaplayer setFrame:self.frame];
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    [path moveToPoint:point];
+    [path addArcWithCenter:point radius:4 startAngle:radians(0) endAngle:radians(360) clockwise:YES];
+    [pshaplayer setPath:path.CGPath];
+    [pshaplayer setFillColor:[UIColor redColor].CGColor];
+    [pshaplayer setZPosition:self.center.x];
+    [self.layer addSublayer:pshaplayer];
+    
+    [sweepBtn setTitle:@"扫描" forState:UIControlStateNormal];
+}
+
 -(void)clicksweepBtn:(id)sender
 {
     isSweep = !isSweep;
     if (isSweep) {
         [self sweep];
         [sweepBtn setTitle:@"停止扫描" forState:UIControlStateNormal];
+        [self.delegate radarViewSweep];
+        
     }
     else
     {
         [self stopSweep];
         [sweepBtn setTitle:@"扫描" forState:UIControlStateNormal];
+        [self.delegate radarViewStopSweep];
     }
 }
 
 -(void)sweep
 {
-    
-    
+
     CGRect rect=self.frame;
     CGPoint center = CGPointMake(rect.size.width/2, rect.size.height/2);
     float radius = (rect.size.width/12 - 2);

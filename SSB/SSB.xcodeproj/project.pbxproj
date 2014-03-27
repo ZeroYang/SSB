@@ -127,6 +127,7 @@
 		7EC0E0FC18D6078E0088CD7C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EC0E0FB18D6078E0088CD7C /* libz.dylib */; };
 		7EC0E0FF18D608CE0088CD7C /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC0E0FE18D608CE0088CD7C /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7EC0E10118D609620088CD7C /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EC0E10018D609620088CD7C /* libxml2.dylib */; };
+		7EC7687118E31D41005584F2 /* CaculateDistance.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC7687018E31D41005584F2 /* CaculateDistance.m */; };
 		7EF26CC118DFFA56008B1524 /* RainFallLineChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF26CC018DFFA56008B1524 /* RainFallLineChartViewController.m */; };
 		7EF26CC418DFFA82008B1524 /* WaterLevelLineChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF26CC318DFFA82008B1524 /* WaterLevelLineChartViewController.m */; };
 		7EFEC5B118E237D800F5227C /* APAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFEC5AB18E237D800F5227C /* APAttribute.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -337,6 +338,8 @@
 		7EC0E0FD18D608CE0088CD7C /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
 		7EC0E0FE18D608CE0088CD7C /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
 		7EC0E10018D609620088CD7C /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		7EC7686F18E31D41005584F2 /* CaculateDistance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaculateDistance.h; sourceTree = "<group>"; };
+		7EC7687018E31D41005584F2 /* CaculateDistance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaculateDistance.m; sourceTree = "<group>"; };
 		7EF26CBF18DFFA56008B1524 /* RainFallLineChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RainFallLineChartViewController.h; path = Controller/RainFallLineChartViewController.h; sourceTree = "<group>"; };
 		7EF26CC018DFFA56008B1524 /* RainFallLineChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RainFallLineChartViewController.m; path = Controller/RainFallLineChartViewController.m; sourceTree = "<group>"; };
 		7EF26CC218DFFA82008B1524 /* WaterLevelLineChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaterLevelLineChartViewController.h; path = Controller/WaterLevelLineChartViewController.h; sourceTree = "<group>"; };
@@ -515,6 +518,8 @@
 				7EA5579E18D07B360087B0CB /* Supporting Files */,
 				7EC0E0EC18D5FAC20088CD7C /* WebServiceHelper.h */,
 				7EC0E0ED18D5FAC20088CD7C /* WebServiceHelper.m */,
+				7EC7686F18E31D41005584F2 /* CaculateDistance.h */,
+				7EC7687018E31D41005584F2 /* CaculateDistance.m */,
 			);
 			path = SSB;
 			sourceTree = "<group>";
@@ -928,6 +933,7 @@
 				7EF26CC118DFFA56008B1524 /* RainFallLineChartViewController.m in Sources */,
 				7EA557B118D07B360087B0CB /* ViewController.m in Sources */,
 				7EC0E0DD18D5F56C0088CD7C /* ASIWebPageRequest.m in Sources */,
+				7EC7687118E31D41005584F2 /* CaculateDistance.m in Sources */,
 				7EC0E0DA18D5F56C0088CD7C /* ASIHTTPRequest.m in Sources */,
 				7EC0E0E618D5F56C0088CD7C /* ASIS3BucketObject.m in Sources */,
 				7EFEC5B118E237D800F5227C /* APAttribute.m in Sources */,
@@ -1122,6 +1128,10 @@
 		7EA557CA18D07B360087B0CB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv7,
+					armv7s,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1132,9 +1142,11 @@
 					"${SDK_DIR}/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "SSB/SSB-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1142,6 +1154,10 @@
 		7EA557CB18D07B360087B0CB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv7,
+					armv7s,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1152,9 +1168,11 @@
 					"${SDK_DIR}/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "SSB/SSB-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

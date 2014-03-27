@@ -10,8 +10,11 @@
 #import "RadarView.h"
 #import "WebServiceHelper.h"
 
-@interface AlarmlViewController ()
-
+@interface AlarmlViewController ()<RadarViewDelegate>
+{
+    RadarView *radar;
+    ASIHTTPRequest *ARequest;
+}
 @end
 
 @implementation AlarmlViewController
@@ -40,15 +43,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    RadarView *radar = [[RadarView alloc] initWithFrame:CGRectMake(10, 5, 300, 400)];
+    radar = [[RadarView alloc] initWithFrame:CGRectMake(10, 5, 300, 400)];
     [self.view addSubview:radar];
     radar.backgroundColor = [UIColor blackColor];
+    radar.delegate = self;
     
-    
-    ASIHTTPRequest *request = [WebServiceHelper getASISOAP11Request:@"http://61.184.84.212:10000/" webServiceFile:@"webService.asmx" xmlNameSpace:@" http://tempuri.org/" Action:@"getRadarData"];
-    
-    request.delegate = self;
-    [request startAsynchronous];
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,6 +55,17 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)getRadarData
+{
+    ARequest = [WebServiceHelper getASISOAP11Request:@"http://61.184.84.212:10000/" webServiceFile:@"webService.asmx" xmlNameSpace:@" http://tempuri.org/" Action:@"getRadarData"];
+    
+    ARequest.delegate = self;
+    [ARequest startAsynchronous];
+    
+}
+
+#pragma ASIHTTPRequest
 
 -(void) requestFailed:(ASIHTTPRequest *)request
 {
@@ -66,6 +76,21 @@
 -(void) requestFinished:(ASIHTTPRequest *)request
 {
     NSLog(@"%@", [[NSString alloc] initWithData:[request responseData] encoding:NSUTF8StringEncoding]);
+    [radar drawPoint:CGPointMake(100, 100)];
+    
+//    10000|丹江口|0.4|5|1小时降雨量#10001|吕家河|0.4|5|1小时降雨量#10002|三官殿|0.5|2|3小时降雨量
+//    ​（地区ID|地区名称|地区降雨量|地区水位|预警累计时间#）
+}
+
+#pragma mark RadarViewDelegate
+-(void)radarViewSweep
+{
+    [self getRadarData];
+}
+
+-(void)radarViewStopSweep
+{
+    [ARequest cancel];
 }
 
 @end

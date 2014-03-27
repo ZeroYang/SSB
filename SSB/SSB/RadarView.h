@@ -8,6 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RadarView : UIView
+@protocol RadarViewDelegate <NSObject>
+
+@required
+-(void)radarViewSweep;
+
+-(void)radarViewStopSweep;
 
 @end
+
+@interface RadarView : UIView
+
+@property (nonatomic, assign) id<RadarViewDelegate> delegate;
+
+-(void)drawPoint:(CGPoint)point;
+
+@end
+
