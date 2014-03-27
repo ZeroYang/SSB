@@ -10,6 +10,7 @@
 #import "WebServiceHelper.h"
 #import "RainFallLineChartViewController.h"
 #import "SUIActivityIndicatorView.h"
+#import "iToast.h"
 
 @interface RainFallViewController ()
 {
@@ -73,6 +74,7 @@
     NSError *error = [request error];
     NSLog(@"requestFailed error:%@", error);
     [activityView hideWaiting];
+    [[iToast makeText:@"获取降雨量数据失败!"] show];
 }
 
 -(void) requestFinished:(ASIHTTPRequest *)request

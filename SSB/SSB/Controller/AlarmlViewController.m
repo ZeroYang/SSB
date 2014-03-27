@@ -9,6 +9,7 @@
 #import "AlarmlViewController.h"
 #import "RadarView.h"
 #import "WebServiceHelper.h"
+#import "iToast.h"
 
 @interface AlarmlViewController ()<RadarViewDelegate>
 {
@@ -71,6 +72,7 @@
 {
     NSError *error = [request error];
     NSLog(@"requestFailed error:%@", error);
+    [[iToast makeText:@"获取雷达预警数据失败!"] show];
 }
 
 -(void) requestFinished:(ASIHTTPRequest *)request

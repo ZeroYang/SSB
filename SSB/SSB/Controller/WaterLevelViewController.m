@@ -10,6 +10,7 @@
 #import "WebServiceHelper.h"
 #import "WaterLevelLineChartViewController.h"
 #import "SUIActivityIndicatorView.h"
+#import "iToast.h"
 
 @interface WaterLevelViewController ()
 {
@@ -76,6 +77,7 @@
     NSError *error = [request error];
     NSLog(@"requestFailed error:%@", error);
     [activityView hideWaiting];
+    [[iToast makeText:@"获取水位数据失败!"] show];
 }
 
 -(void) requestFinished:(ASIHTTPRequest *)request

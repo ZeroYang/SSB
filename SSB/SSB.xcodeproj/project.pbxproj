@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7E06932C18E2DAE400C956CB /* SUIActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E06932B18E2DAE400C956CB /* SUIActivityIndicatorView.m */; };
+		7E0AAFB718E4756B00DAF39B /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0AAFB618E4756B00DAF39B /* iToast.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7E24EFE818D743F4006E2A5B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E24EFE718D743F4006E2A5B /* DetailViewController.m */; };
 		7E2BC44218D9EB1C00F5A4B0 /* MDSpreadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2BC40F18D9EB1C00F5A4B0 /* MDSpreadView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7E2BC44318D9EB1C00F5A4B0 /* MDSpreadViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2BC41118D9EB1C00F5A4B0 /* MDSpreadViewCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -148,6 +149,8 @@
 /* Begin PBXFileReference section */
 		7E06932A18E2DAE400C956CB /* SUIActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUIActivityIndicatorView.h; sourceTree = "<group>"; };
 		7E06932B18E2DAE400C956CB /* SUIActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUIActivityIndicatorView.m; sourceTree = "<group>"; };
+		7E0AAFB518E4756B00DAF39B /* iToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iToast.h; sourceTree = "<group>"; };
+		7E0AAFB618E4756B00DAF39B /* iToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iToast.m; sourceTree = "<group>"; };
 		7E24EFE618D743F4006E2A5B /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = Controller/DetailViewController.h; sourceTree = "<group>"; };
 		7E24EFE718D743F4006E2A5B /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailViewController.m; path = Controller/DetailViewController.m; sourceTree = "<group>"; };
 		7E2BC40E18D9EB1C00F5A4B0 /* MDSpreadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDSpreadView.h; sourceTree = "<group>"; };
@@ -556,6 +559,8 @@
 		7EA557D218D07C7C0087B0CB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7E0AAFB518E4756B00DAF39B /* iToast.h */,
+				7E0AAFB618E4756B00DAF39B /* iToast.m */,
 				7E06932A18E2DAE400C956CB /* SUIActivityIndicatorView.h */,
 				7E06932B18E2DAE400C956CB /* SUIActivityIndicatorView.m */,
 				7EA5356318E0763000250E5C /* FYChartView */,
@@ -959,6 +964,7 @@
 				7E2BC44218D9EB1C00F5A4B0 /* MDSpreadView.m in Sources */,
 				7EFEC5B218E237D800F5227C /* APDocument.m in Sources */,
 				7EC0E0E318D5F56C0088CD7C /* ASICloudFilesObjectRequest.m in Sources */,
+				7E0AAFB718E4756B00DAF39B /* iToast.m in Sources */,
 				7EB7FB5C18DE7D0600BA7261 /* SIMenuCell.m in Sources */,
 				7E24EFE818D743F4006E2A5B /* DetailViewController.m in Sources */,
 				7EC0E0E818D5F56C0088CD7C /* ASIS3ObjectRequest.m in Sources */,

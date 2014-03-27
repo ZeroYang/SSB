@@ -13,6 +13,7 @@
 #import "APDocument.h"
 #import "APElement.h"
 #import "SUIActivityIndicatorView.h"
+#import "iToast.h"
 
 #define CHART_HEIGHT        (300)
 
@@ -158,6 +159,7 @@
     NSError *error = [request error];
     NSLog(@"requestFailed error:%@", error);
     [activityView hideWaiting];
+    [[iToast makeText:@"获取指定地区的水位数据失败!"] show];
 }
 
 -(void) requestFinished:(ASIHTTPRequest *)request
