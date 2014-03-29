@@ -24,4 +24,6 @@
 
 +(NSArray*)shuikuLocations;
 
++(Location*)getLocationByLocationId:(NSString*)locationId;
+
 @end

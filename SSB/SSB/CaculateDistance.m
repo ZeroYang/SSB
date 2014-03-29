@@ -264,4 +264,17 @@ dJingdu:(double)dJingdu rect:(CGRect)viewRect
     return locations;
 }
 
++(Location*)getLocationByLocationId:(NSString*)locationId
+{
+    NSArray *locations = [self shuikuLocations];
+    
+    for (Location *location in locations) {
+        if ([location.locationId isEqualToString:locationId]) {
+            return location;
+        }
+    }
+    
+    return nil;
+}
+
 @end

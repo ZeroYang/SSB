@@ -57,6 +57,7 @@
 		7E65BB6618D1F38000872990 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E65BB6518D1F38000872990 /* MenuItem.m */; };
 		7E65BB6918D202E000872990 /* RadarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E65BB6818D202E000872990 /* RadarView.m */; };
 		7E9C101518E69E6E00DFE623 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9C101418E69E6E00DFE623 /* CoreLocation.framework */; };
+		7E9C101818E6C2CD00DFE623 /* AlarmlDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9C101718E6C2CD00DFE623 /* AlarmlDetailViewController.m */; };
 		7EA5356618E0763000250E5C /* FYChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA5356518E0763000250E5C /* FYChartView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7EA5579818D07B360087B0CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EA5579718D07B360087B0CB /* Foundation.framework */; };
 		7EA5579A18D07B360087B0CB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EA5579918D07B360087B0CB /* CoreGraphics.framework */; };
@@ -212,6 +213,8 @@
 		7E65BB6718D202E000872990 /* RadarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadarView.h; sourceTree = "<group>"; };
 		7E65BB6818D202E000872990 /* RadarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadarView.m; sourceTree = "<group>"; };
 		7E9C101418E69E6E00DFE623 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		7E9C101618E6C2CD00DFE623 /* AlarmlDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmlDetailViewController.h; sourceTree = "<group>"; };
+		7E9C101718E6C2CD00DFE623 /* AlarmlDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmlDetailViewController.m; sourceTree = "<group>"; };
 		7EA5356218E0632800250E5C /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		7EA5356418E0763000250E5C /* FYChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYChartView.h; sourceTree = "<group>"; };
 		7EA5356518E0763000250E5C /* FYChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYChartView.m; sourceTree = "<group>"; };
@@ -606,6 +609,8 @@
 				7EF26CC218DFFA82008B1524 /* WaterLevelLineChartViewController.h */,
 				7EF26CC318DFFA82008B1524 /* WaterLevelLineChartViewController.m */,
 				7EA5356218E0632800250E5C /* Constant.h */,
+				7E9C101618E6C2CD00DFE623 /* AlarmlDetailViewController.h */,
+				7E9C101718E6C2CD00DFE623 /* AlarmlDetailViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -951,6 +956,7 @@
 				7EC0E0E118D5F56C0088CD7C /* ASICloudFilesContainerXMLParserDelegate.m in Sources */,
 				7EC0E0FF18D608CE0088CD7C /* GDataXMLNode.m in Sources */,
 				7EC0E0E718D5F56C0088CD7C /* ASIS3BucketRequest.m in Sources */,
+				7E9C101818E6C2CD00DFE623 /* AlarmlDetailViewController.m in Sources */,
 				7EB7FB5D18DE7D0600BA7261 /* SIMenuConfiguration.m in Sources */,
 				7EC0E0DE18D5F56C0088CD7C /* ASICloudFilesCDNRequest.m in Sources */,
 				7EC0E0D718D5F56C0088CD7C /* ASIDataDecompressor.m in Sources */,

@@ -10,11 +10,14 @@
 #import "RadarView.h"
 #import "WebServiceHelper.h"
 #import "iToast.h"
+#import "CaculateDistance.h"
+#import "AlarmlDetailViewController.h"
 
 @interface AlarmlViewController ()<RadarViewDelegate>
 {
     RadarView *radar;
     ASIHTTPRequest *ARequest;
+    NSMutableArray *locationIds;
 }
 @end
 
@@ -49,6 +52,8 @@
     radar.backgroundColor = [UIColor blackColor];
     radar.delegate = self;
     
+    locationIds = [[NSMutableArray alloc] init];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,11 +82,79 @@
 
 -(void) requestFinished:(ASIHTTPRequest *)request
 {
-    NSLog(@"%@", [[NSString alloc] initWithData:[request responseData] encoding:NSUTF8StringEncoding]);
-    [radar drawPoint:CGPointMake(100, 100)];
+    AlarmlDetailViewController *detail = [[AlarmlDetailViewController alloc] init];
+    detail.alarmData = @"61940205|许家畈|0.4|5|1小时降雨量#62039130|太极峡|0.4|5|1小时降雨量#61939240|岗河|0.5|2|3小时降雨量";
+    [self.navigationController pushViewController:detail animated:NO];
+    return;
     
+    //[radar drawPoint:CGPointMake(100, 100)];
+    
+    NSString *xmlResult = [[NSString alloc] initWithData:[request responseData] encoding:NSUTF8StringEncoding];
+    NSLog(@"%@", xmlResult);
+    NSDictionary *dic =[WebServiceHelper getWebServiceXMLResult:xmlResult xpath:@"getDataApp_YuliangtableResult"];
+    
+    NSString *result = [dic objectForKey:@"text"];
+    
+    result = @"61940205|许家畈|0.4|5|1小时降雨量#62039130|太极峡|0.4|5|1小时降雨量#61939240|岗河|0.5|2|3小时降雨量";
+    NSArray *skArray = [result componentsSeparatedByString:@"#"];
+    if(0 == [skArray count]) //报文格式错误
+        return;
+    for (int i= 0; i<[skArray count]; i++) {
+        NSString *skString = [skArray objectAtIndex:i];
+        NSArray *components = [skString componentsSeparatedByString:@"|"];
+        if ([components count] < 1) {
+            return;
+        }
+        //locationId
+        [locationIds addObject:[components objectAtIndex:0]];
+        
+    }
+    
+    [self drawSAlarmsitePoint];
+
+//    for (int i= 0; i<[skArray count] - 1; i++) {
+//        NSString *skString = [skArray objectAtIndex:i];
+//        NSArray *components = [skString componentsSeparatedByString:@"|"];
+//        
+//        if ([components count] < 1) {
+//            return;
+//        }
+//        //locationId
+//        [locationIds addObject:[components objectAtIndex:0]];
+//        //标题
+//        [ctitleList addObject:[components lastObject]];
+//        NSMutableArray *rowDatas = [[NSMutableArray alloc] init];
+//        [rowDatas addObject:[components objectAtIndex:1]];
+//        //剔除id和水库名
+//        for (int i= 2; i<[components count] - 1; i++) {
+//            //降雨量 加上单位mm
+//            [rowDatas addObject:[NSString stringWithFormat:@"%@mm",[components objectAtIndex:i]]];
+//            
+//        }
+//        
+//        [dataList addObject:rowDatas];
+//    }
 //    10000|丹江口|0.4|5|1小时降雨量#10001|吕家河|0.4|5|1小时降雨量#10002|三官殿|0.5|2|3小时降雨量
 //    ​（地区ID|地区名称|地区降雨量|地区水位|预警累计时间#）
+    
+//    61940205|许家畈|0.4|5|1小时降雨量#62039130|太极峡|0.4|5|1小时降雨量#61939240|岗河|0.5|2|3小时降雨量
+    
+//    1.根据返回结果 地区坐标和当前坐标计算在雷达界面 距离在50以内的描点
+//    2.有返回结果 可以进入 详情界面
+}
+
+-(void)drawSAlarmsitePoint
+{
+    for (NSString *locationId in locationIds) {
+        Location *location = [CaculateDistance getLocationByLocationId:locationId];
+        CGPoint point = [CaculateDistance caculatePointwith:location.latitude sJingdu:location.longitude dWeidu:location.latitude dJingdu:location.longitude rect:radar.frame];
+        
+        if ( !CGPointEqualToPoint(CGPointZero, point) ) {
+            [radar drawPoint:point];
+        }
+    }
+
+
 }
 
 #pragma mark RadarViewDelegate
