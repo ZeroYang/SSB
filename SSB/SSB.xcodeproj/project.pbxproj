@@ -56,6 +56,7 @@
 		7E65BB6318D1F2A600872990 /* MenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E65BB6218D1F2A600872990 /* MenuItemView.m */; };
 		7E65BB6618D1F38000872990 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E65BB6518D1F38000872990 /* MenuItem.m */; };
 		7E65BB6918D202E000872990 /* RadarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E65BB6818D202E000872990 /* RadarView.m */; };
+		7E9C101518E69E6E00DFE623 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9C101418E69E6E00DFE623 /* CoreLocation.framework */; };
 		7EA5356618E0763000250E5C /* FYChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA5356518E0763000250E5C /* FYChartView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7EA5579818D07B360087B0CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EA5579718D07B360087B0CB /* Foundation.framework */; };
 		7EA5579A18D07B360087B0CB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EA5579918D07B360087B0CB /* CoreGraphics.framework */; };
@@ -210,6 +211,7 @@
 		7E65BB6518D1F38000872990 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuItem.m; path = DataModel/MenuItem.m; sourceTree = "<group>"; };
 		7E65BB6718D202E000872990 /* RadarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadarView.h; sourceTree = "<group>"; };
 		7E65BB6818D202E000872990 /* RadarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadarView.m; sourceTree = "<group>"; };
+		7E9C101418E69E6E00DFE623 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		7EA5356218E0632800250E5C /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		7EA5356418E0763000250E5C /* FYChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYChartView.h; sourceTree = "<group>"; };
 		7EA5356518E0763000250E5C /* FYChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYChartView.m; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E9C101518E69E6E00DFE623 /* CoreLocation.framework in Frameworks */,
 				7EC0E10118D609620088CD7C /* libxml2.dylib in Frameworks */,
 				7EC0E0FC18D6078E0088CD7C /* libz.dylib in Frameworks */,
 				7EA5579A18D07B360087B0CB /* CoreGraphics.framework in Frameworks */,
@@ -490,6 +493,7 @@
 		7EA5579618D07B360087B0CB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7E9C101418E69E6E00DFE623 /* CoreLocation.framework */,
 				7EC0E10018D609620088CD7C /* libxml2.dylib */,
 				7EC0E0FB18D6078E0088CD7C /* libz.dylib */,
 				7EC0E0F718D6033A0088CD7C /* MobileCoreServices.framework */,
