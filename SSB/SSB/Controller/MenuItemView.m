@@ -16,6 +16,8 @@
 #import "PhotoViewController.h"
 
 #define  FONT_SIZE          14.0f
+#define MENUITEMVIEW_WIDTH      80
+#define MENUITEMVIEW_HEIGHT     80
 
 @interface MenuItemView ()
 
@@ -43,7 +45,7 @@
     int MaxWidth = self.frame.size.width;
     UIImage *icon = [UIImage  imageNamed:item.icon];
     iconBtn = [[UIButton alloc] init];
-    [iconBtn setFrame:CGRectMake((MaxWidth - icon.size.width)/2, 5, icon.size.width, icon.size.height)];
+    [iconBtn setFrame:CGRectMake((MaxWidth - MENUITEMVIEW_WIDTH)/2, 5, MENUITEMVIEW_WIDTH, MENUITEMVIEW_WIDTH)];
     [iconBtn setImage:icon forState:UIControlStateNormal];
     [iconBtn addTarget:self action:@selector(clickIconBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:iconBtn];
@@ -55,7 +57,7 @@
     float labelWidth =  [item.name sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE]
       constrainedToSize:CGSizeMake(MaxLabelWidth, labelHeight)
           lineBreakMode:NSLineBreakByClipping].width;
-    textLabel = [[UILabel alloc] initWithFrame:CGRectMake((MaxWidth - labelWidth)/2, icon.size.height, labelWidth, labelHeight)];
+    textLabel = [[UILabel alloc] initWithFrame:CGRectMake((MaxWidth - labelWidth)/2, MENUITEMVIEW_WIDTH, labelWidth, labelHeight)];
     [self addSubview:textLabel];
     textLabel.font = [UIFont systemFontOfSize:FONT_SIZE];
     textLabel.textAlignment = NSTextAlignmentCenter;
