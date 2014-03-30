@@ -21,7 +21,7 @@
 
 @property (nonatomic, assign) id<RadarViewDelegate> delegate;
 
--(void)drawPoint:(CGPoint)point;
+-(void)drawPoint:(NSArray*)points;
 
 @end
 

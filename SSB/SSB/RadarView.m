@@ -7,6 +7,7 @@
 //
 
 #import "RadarView.h"
+#import "CaculateDistance.h"
 
 #define SWEEP_BTN_HEIGHT        (40)
 
@@ -92,15 +93,19 @@ static inline float radians(double degrees) {
 
 }
 
--(void)drawPoint:(CGPoint)point
+-(void)drawPoint:(NSArray*)points
 {
     [shaplayer removeFromSuperlayer];
     
     pshaplayer = [CAShapeLayer layer];
     [pshaplayer setFrame:self.frame];
     UIBezierPath *path = [UIBezierPath bezierPath];
-    [path moveToPoint:point];
-    [path addArcWithCenter:point radius:4 startAngle:radians(0) endAngle:radians(360) clockwise:YES];
+    for (CPoint *cpoint in points) {
+        CGPoint point = CGPointMake(cpoint.x, cpoint.y);
+        [path moveToPoint:point];
+        [path addArcWithCenter:point radius:4 startAngle:radians(0) endAngle:radians(360) clockwise:YES];
+    }
+
     [pshaplayer setPath:path.CGPath];
     [pshaplayer setFillColor:[UIColor redColor].CGColor];
     [pshaplayer setZPosition:self.center.x];

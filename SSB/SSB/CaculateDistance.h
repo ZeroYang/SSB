@@ -8,6 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@interface CPoint : NSObject
+
+@property(nonatomic,assign)double x;
+@property(nonatomic,assign)double y;
+
+-(id)initWithX:(CGFloat)dx Y:(CGFloat)dy;
+
+@end
+
 @interface Location : NSObject
 @property(nonatomic,strong)NSString* locationId;
 @property(nonatomic,assign)double latitude;

@@ -58,11 +58,11 @@
     radar.backgroundColor = [UIColor blackColor];
     radar.delegate = self;
     
-    UITapGestureRecognizer *tapGr = [[UITapGestureRecognizer alloc]
-                                     initWithTarget:self
-                                     action:@selector(viewTapped:)];
-    tapGr.cancelsTouchesInView = NO;
-    [radar addGestureRecognizer:tapGr];
+//    UITapGestureRecognizer *tapGr = [[UITapGestureRecognizer alloc]
+//                                     initWithTarget:self
+//                                     action:@selector(viewTapped:)];
+//    tapGr.cancelsTouchesInView = NO;
+//    [radar addGestureRecognizer:tapGr];
     
     locationIds = [[NSMutableArray alloc] init];
     
@@ -94,8 +94,7 @@
 
 -(void) requestFinished:(ASIHTTPRequest *)request
 {
-    //[radar drawPoint:CGPointMake(100, 100)];
-    
+//    isAlarm = YES;
     NSString *xmlResult = [[NSString alloc] initWithData:[request responseData] encoding:NSUTF8StringEncoding];
     NSLog(@"%@", xmlResult);
     NSDictionary *dic =[WebServiceHelper getWebServiceXMLResult:xmlResult xpath:@"getDataApp_YuliangtableResult"];
@@ -105,7 +104,10 @@
     result = @"61940205|许家畈|0.4|5|1小时降雨量#62039130|太极峡|0.4|5|1小时降雨量#61939240|岗河|0.5|2|3小时降雨量";
     NSArray *skArray = [result componentsSeparatedByString:@"#"];
     if(0 == [skArray count]) //报文格式错误
+    {
+        [[iToast makeText:@"在您身边50公里内未发现山洪灾害预警！"] show];
         return;
+    }
     for (int i= 0; i<[skArray count]; i++) {
         NSString *skString = [skArray objectAtIndex:i];
         NSArray *components = [skString componentsSeparatedByString:@"|"];
@@ -116,51 +118,29 @@
         [locationIds addObject:[components objectAtIndex:0]];
         
     }
-    isAlarm = YES;
+//    isAlarm = YES;
     [locationHelper startLocation];
-
-//    for (int i= 0; i<[skArray count] - 1; i++) {
-//        NSString *skString = [skArray objectAtIndex:i];
-//        NSArray *components = [skString componentsSeparatedByString:@"|"];
-//        
-//        if ([components count] < 1) {
-//            return;
-//        }
-//        //locationId
-//        [locationIds addObject:[components objectAtIndex:0]];
-//        //标题
-//        [ctitleList addObject:[components lastObject]];
-//        NSMutableArray *rowDatas = [[NSMutableArray alloc] init];
-//        [rowDatas addObject:[components objectAtIndex:1]];
-//        //剔除id和水库名
-//        for (int i= 2; i<[components count] - 1; i++) {
-//            //降雨量 加上单位mm
-//            [rowDatas addObject:[NSString stringWithFormat:@"%@mm",[components objectAtIndex:i]]];
-//            
-//        }
-//        
-//        [dataList addObject:rowDatas];
-//    }
-//    10000|丹江口|0.4|5|1小时降雨量#10001|吕家河|0.4|5|1小时降雨量#10002|三官殿|0.5|2|3小时降雨量
-//    ​（地区ID|地区名称|地区降雨量|地区水位|预警累计时间#）
-    
-//    61940205|许家畈|0.4|5|1小时降雨量#62039130|太极峡|0.4|5|1小时降雨量#61939240|岗河|0.5|2|3小时降雨量
     
 //    1.根据返回结果 地区坐标和当前坐标计算在雷达界面 距离在50以内的描点
 //    2.有返回结果 可以进入 详情界面
 }
 
--(void)drawSAlarmsitePoint:(CLLocation*)myLocation
+-(NSArray*)drawSAlarmsitePoint:(CLLocation*)myLocation
 {
+    NSMutableArray *points = [[NSMutableArray alloc] init];
     for (NSString *locationId in locationIds) {
         Location *location = [CaculateDistance getLocationByLocationId:locationId];
         CGPoint point = [CaculateDistance caculatePointwith:location.latitude sJingdu:location.longitude dWeidu:myLocation.coordinate.latitude dJingdu:myLocation.coordinate.longitude rect:radar.frame];
         
+        
         if ( !CGPointEqualToPoint(CGPointZero, point) ) {
-            [radar drawPoint:point];
+            [points addObject:[[CPoint alloc] initWithX:point.x Y:point.y]];
         }
     }
-
+    return points;
+//    if ([points count] >0) {
+//        [radar drawPoint:points];
+//    }
 
 }
 
@@ -178,24 +158,38 @@
 #pragma mark LocationHelperDelegate
 -(void)didLocation:(CLLocation *)location
 {
-    [self drawSAlarmsitePoint:location];
+    AlarmlDetailViewController *detail = [[AlarmlDetailViewController alloc] init];
+    //test
+    //detail.alarmData = @"61940205|许家畈|0.4|5|1小时降雨量#62039130|太极峡|0.4|5|1小时降雨量#61939240|岗河|0.5|2|3小时降雨量";
+    detail.alarmData = alarmInfo;
+    detail.alarmPoints = [self drawSAlarmsitePoint:location];
+    [self.navigationController pushViewController:detail animated:NO];
+    return;
 }
 
 -(void)didFailLocation:(NSError *)error
 {
     NSLog(@"定位失败！");
     [[iToast makeText:@"获取当前位置失败!"] show];
+    
+    AlarmlDetailViewController *detail = [[AlarmlDetailViewController alloc] init];
+    //test
+    //detail.alarmData = @"61940205|许家畈|0.4|5|1小时降雨量#62039130|太极峡|0.4|5|1小时降雨量#61939240|岗河|0.5|2|3小时降雨量";
+    detail.alarmData = alarmInfo;
+    detail.alarmPoints = nil;
+    [self.navigationController pushViewController:detail animated:NO];
+    return;
 }
 
-- (void)viewTapped:(UITapGestureRecognizer*)tapGr
-{
-    if (isAlarm) {
-        AlarmlDetailViewController *detail = [[AlarmlDetailViewController alloc] init];
-        //test
-        //detail.alarmData = @"61940205|许家畈|0.4|5|1小时降雨量#62039130|太极峡|0.4|5|1小时降雨量#61939240|岗河|0.5|2|3小时降雨量";
-        detail.alarmData = alarmInfo;
-        [self.navigationController pushViewController:detail animated:NO];
-        return;
-    }
-}
+//- (void)viewTapped:(UITapGestureRecognizer*)tapGr
+//{
+//    if (isAlarm) {
+//        AlarmlDetailViewController *detail = [[AlarmlDetailViewController alloc] init];
+//        //test
+//        detail.alarmData = @"61940205|许家畈|0.4|5|1小时降雨量#62039130|太极峡|0.4|5|1小时降雨量#61939240|岗河|0.5|2|3小时降雨量";
+//        //detail.alarmData = alarmInfo;
+//        [self.navigationController pushViewController:detail animated:NO];
+//        return;
+//    }
+//}
 @end

@@ -9,6 +9,22 @@
 #import <CoreLocation/CoreLocation.h>
 #import "CaculateDistance.h"
 
+@implementation CPoint
+
+@synthesize x,y;
+
+-(id)initWithX:(CGFloat)dx Y:(CGFloat)dy
+{
+    self = [super init];
+    if (self) {
+        x = dx;
+        y = dy;
+    }
+    return self;
+}
+
+@end
+
 
 @implementation Location
 @synthesize latitude,longitude,locationId;

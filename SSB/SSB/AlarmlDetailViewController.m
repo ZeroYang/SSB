@@ -7,6 +7,7 @@
 //
 
 #import "AlarmlDetailViewController.h"
+#import "RadarView.h"
 
 @interface AlarmlDetailViewController ()
 {
@@ -14,18 +15,20 @@
     NSArray *rtitleList;
     NSMutableArray *dataList;
     NSMutableArray *locationIds;
+    
+    RadarView* radar;
 }
 @end
 
 @implementation AlarmlDetailViewController
-@synthesize alarmData;
+@synthesize alarmData,alarmPoints;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"预警";
+        self.title = @"雷达预警监测";
     }
     return self;
 }
@@ -40,14 +43,33 @@
     dataList = [[NSMutableArray alloc] init];
     locationIds = [[NSMutableArray alloc] init];
     
+    UIScrollView * parentView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    
+    radar = [[RadarView alloc] initWithFrame:CGRectMake(10, 5, 300, 400)];
+    [parentView addSubview:radar];
+    radar.backgroundColor = [UIColor blackColor];
+    
     spreadView = [[MDSpreadView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:spreadView];
+    [spreadView setFrame:CGRectOffset(spreadView.frame, 0, 400 - 40)];
+    [parentView addSubview:spreadView];
+    
+    [self.view addSubview:parentView];
+    [parentView setContentSize:CGSizeMake(320, 2*self.view.bounds.size.height)];
     
     spreadView.delegate = self;
     spreadView.dataSource = self;
     spreadView.userInteractionEnabled = YES;
     [self parserDataStr];
     [spreadView reloadData];
+    
+    [self drawAlarmPoint];
+}
+
+-(void)drawAlarmPoint
+{
+    if ([alarmPoints count] > 0) {
+        [radar drawPoint:alarmPoints];
+    }
 }
 
 - (void)didReceiveMemoryWarning

@@ -14,5 +14,6 @@
 }
 
 @property(nonatomic,strong)NSString *alarmData;
+@property(nonatomic,strong)NSArray *alarmPoints;
 
 @end
