@@ -20,6 +20,8 @@
     ASIHTTPRequest *ARequest;
     NSMutableArray *locationIds;
     LocationHelper *locationHelper;
+    BOOL isAlarm;
+    NSString * alarmInfo;
 }
 @end
 
@@ -56,6 +58,12 @@
     radar.backgroundColor = [UIColor blackColor];
     radar.delegate = self;
     
+    UITapGestureRecognizer *tapGr = [[UITapGestureRecognizer alloc]
+                                     initWithTarget:self
+                                     action:@selector(viewTapped:)];
+    tapGr.cancelsTouchesInView = NO;
+    [radar addGestureRecognizer:tapGr];
+    
     locationIds = [[NSMutableArray alloc] init];
     
 }
@@ -86,11 +94,6 @@
 
 -(void) requestFinished:(ASIHTTPRequest *)request
 {
-//    AlarmlDetailViewController *detail = [[AlarmlDetailViewController alloc] init];
-//    detail.alarmData = @"61940205|许家畈|0.4|5|1小时降雨量#62039130|太极峡|0.4|5|1小时降雨量#61939240|岗河|0.5|2|3小时降雨量";
-//    [self.navigationController pushViewController:detail animated:NO];
-//    return;
-    
     //[radar drawPoint:CGPointMake(100, 100)];
     
     NSString *xmlResult = [[NSString alloc] initWithData:[request responseData] encoding:NSUTF8StringEncoding];
@@ -98,7 +101,7 @@
     NSDictionary *dic =[WebServiceHelper getWebServiceXMLResult:xmlResult xpath:@"getDataApp_YuliangtableResult"];
     
     NSString *result = [dic objectForKey:@"text"];
-    
+    alarmInfo = result;
     result = @"61940205|许家畈|0.4|5|1小时降雨量#62039130|太极峡|0.4|5|1小时降雨量#61939240|岗河|0.5|2|3小时降雨量";
     NSArray *skArray = [result componentsSeparatedByString:@"#"];
     if(0 == [skArray count]) //报文格式错误
@@ -113,7 +116,7 @@
         [locationIds addObject:[components objectAtIndex:0]];
         
     }
-    
+    isAlarm = YES;
     [locationHelper startLocation];
 
 //    for (int i= 0; i<[skArray count] - 1; i++) {
@@ -182,5 +185,17 @@
 {
     NSLog(@"定位失败！");
     [[iToast makeText:@"获取当前位置失败!"] show];
+}
+
+- (void)viewTapped:(UITapGestureRecognizer*)tapGr
+{
+    if (isAlarm) {
+        AlarmlDetailViewController *detail = [[AlarmlDetailViewController alloc] init];
+        //test
+        //detail.alarmData = @"61940205|许家畈|0.4|5|1小时降雨量#62039130|太极峡|0.4|5|1小时降雨量#61939240|岗河|0.5|2|3小时降雨量";
+        detail.alarmData = alarmInfo;
+        [self.navigationController pushViewController:detail animated:NO];
+        return;
+    }
 }
 @end
