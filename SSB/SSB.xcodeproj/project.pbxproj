@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7E06932C18E2DAE400C956CB /* SUIActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E06932B18E2DAE400C956CB /* SUIActivityIndicatorView.m */; };
 		7E0AAFB718E4756B00DAF39B /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0AAFB618E4756B00DAF39B /* iToast.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7E0C1C8718E7C8560071D801 /* LocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C1C8618E7C8560071D801 /* LocationHelper.m */; };
 		7E24EFE818D743F4006E2A5B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E24EFE718D743F4006E2A5B /* DetailViewController.m */; };
 		7E2BC44218D9EB1C00F5A4B0 /* MDSpreadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2BC40F18D9EB1C00F5A4B0 /* MDSpreadView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7E2BC44318D9EB1C00F5A4B0 /* MDSpreadViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2BC41118D9EB1C00F5A4B0 /* MDSpreadViewCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -153,6 +154,8 @@
 		7E06932B18E2DAE400C956CB /* SUIActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUIActivityIndicatorView.m; sourceTree = "<group>"; };
 		7E0AAFB518E4756B00DAF39B /* iToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iToast.h; sourceTree = "<group>"; };
 		7E0AAFB618E4756B00DAF39B /* iToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iToast.m; sourceTree = "<group>"; };
+		7E0C1C8518E7C8560071D801 /* LocationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationHelper.h; sourceTree = "<group>"; };
+		7E0C1C8618E7C8560071D801 /* LocationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationHelper.m; sourceTree = "<group>"; };
 		7E24EFE618D743F4006E2A5B /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = Controller/DetailViewController.h; sourceTree = "<group>"; };
 		7E24EFE718D743F4006E2A5B /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailViewController.m; path = Controller/DetailViewController.m; sourceTree = "<group>"; };
 		7E2BC40E18D9EB1C00F5A4B0 /* MDSpreadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDSpreadView.h; sourceTree = "<group>"; };
@@ -611,6 +614,8 @@
 				7EA5356218E0632800250E5C /* Constant.h */,
 				7E9C101618E6C2CD00DFE623 /* AlarmlDetailViewController.h */,
 				7E9C101718E6C2CD00DFE623 /* AlarmlDetailViewController.m */,
+				7E0C1C8518E7C8560071D801 /* LocationHelper.h */,
+				7E0C1C8618E7C8560071D801 /* LocationHelper.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -943,6 +948,7 @@
 				7E2BC44618D9EB1C00F5A4B0 /* MDSpreadViewCellCornerHeaderBackground.m in Sources */,
 				7EFEC5B318E237D800F5227C /* APElement.m in Sources */,
 				7EA557DA18D094DE0087B0CB /* SVGloble.m in Sources */,
+				7E0C1C8718E7C8560071D801 /* LocationHelper.m in Sources */,
 				7E2BC44318D9EB1C00F5A4B0 /* MDSpreadViewCell.m in Sources */,
 				7EF26CC118DFFA56008B1524 /* RainFallLineChartViewController.m in Sources */,
 				7EA557B118D07B360087B0CB /* ViewController.m in Sources */,
