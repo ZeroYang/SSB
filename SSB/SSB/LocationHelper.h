@@ -23,4 +23,6 @@
 
 @property (nonatomic, assign) id<LocationHelperDelegate> delegate;
 
+-(void)startLocation;
+
 @end

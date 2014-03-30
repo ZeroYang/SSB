@@ -50,7 +50,7 @@
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error;
 {
-    NSLog(@"定位 失败");
+    NSLog(@"定位失败");
     [self.delegate didFailLocation:error];
 }
 

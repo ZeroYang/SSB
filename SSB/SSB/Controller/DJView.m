@@ -47,7 +47,7 @@
         [items addObject:item3];
         //预警雷达
         MenuItem *item4 = [[MenuItem alloc] init];
-        item4.icon = @"alarm";
+        item4.icon = @"radar";
         item4.name = @"预警雷达";
         [items addObject:item4];
         //天气预报

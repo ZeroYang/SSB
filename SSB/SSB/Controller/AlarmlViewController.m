@@ -12,12 +12,14 @@
 #import "iToast.h"
 #import "CaculateDistance.h"
 #import "AlarmlDetailViewController.h"
+#import "LocationHelper.h"
 
-@interface AlarmlViewController ()<RadarViewDelegate>
+@interface AlarmlViewController ()<RadarViewDelegate,LocationHelperDelegate>
 {
     RadarView *radar;
     ASIHTTPRequest *ARequest;
     NSMutableArray *locationIds;
+    LocationHelper *locationHelper;
 }
 @end
 
@@ -29,6 +31,8 @@
     if (self) {
         // Custom initialization
         self.title = @"GPS定位预警";
+        locationHelper = [[LocationHelper alloc] init];
+        locationHelper.delegate = self;
     }
     return self;
 }
@@ -82,10 +86,10 @@
 
 -(void) requestFinished:(ASIHTTPRequest *)request
 {
-    AlarmlDetailViewController *detail = [[AlarmlDetailViewController alloc] init];
-    detail.alarmData = @"61940205|许家畈|0.4|5|1小时降雨量#62039130|太极峡|0.4|5|1小时降雨量#61939240|岗河|0.5|2|3小时降雨量";
-    [self.navigationController pushViewController:detail animated:NO];
-    return;
+//    AlarmlDetailViewController *detail = [[AlarmlDetailViewController alloc] init];
+//    detail.alarmData = @"61940205|许家畈|0.4|5|1小时降雨量#62039130|太极峡|0.4|5|1小时降雨量#61939240|岗河|0.5|2|3小时降雨量";
+//    [self.navigationController pushViewController:detail animated:NO];
+//    return;
     
     //[radar drawPoint:CGPointMake(100, 100)];
     
@@ -110,7 +114,7 @@
         
     }
     
-    [self drawSAlarmsitePoint];
+    [locationHelper startLocation];
 
 //    for (int i= 0; i<[skArray count] - 1; i++) {
 //        NSString *skString = [skArray objectAtIndex:i];
@@ -143,11 +147,11 @@
 //    2.有返回结果 可以进入 详情界面
 }
 
--(void)drawSAlarmsitePoint
+-(void)drawSAlarmsitePoint:(CLLocation*)myLocation
 {
     for (NSString *locationId in locationIds) {
         Location *location = [CaculateDistance getLocationByLocationId:locationId];
-        CGPoint point = [CaculateDistance caculatePointwith:location.latitude sJingdu:location.longitude dWeidu:location.latitude dJingdu:location.longitude rect:radar.frame];
+        CGPoint point = [CaculateDistance caculatePointwith:location.latitude sJingdu:location.longitude dWeidu:myLocation.coordinate.latitude dJingdu:myLocation.coordinate.longitude rect:radar.frame];
         
         if ( !CGPointEqualToPoint(CGPointZero, point) ) {
             [radar drawPoint:point];
@@ -168,4 +172,15 @@
     [ARequest cancel];
 }
 
+#pragma mark LocationHelperDelegate
+-(void)didLocation:(CLLocation *)location
+{
+    [self drawSAlarmsitePoint:location];
+}
+
+-(void)didFailLocation:(NSError *)error
+{
+    NSLog(@"定位失败！");
+    [[iToast makeText:@"获取当前位置失败!"] show];
+}
 @end
