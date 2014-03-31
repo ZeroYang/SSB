@@ -27,6 +27,8 @@
 @end
 
 @interface CaculateDistance : NSObject
++(float)caculateDistancewith:(double)sWeidu sJingdu:(double)sJingdu dWeidu:(double)dWeidu
+                     dJingdu:(double)dJingdu;
 
 +(CGPoint)caculatePointwith:(double)sWeidu sJingdu:(double)sJingdu dWeidu:(double)dWeidu
                      dJingdu:(double)dJingdu rect:(CGRect)viewRect;

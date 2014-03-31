@@ -130,18 +130,16 @@
     NSMutableArray *points = [[NSMutableArray alloc] init];
     for (NSString *locationId in locationIds) {
         Location *location = [CaculateDistance getLocationByLocationId:locationId];
-        CGPoint point = [CaculateDistance caculatePointwith:location.latitude sJingdu:location.longitude dWeidu:myLocation.coordinate.latitude dJingdu:myLocation.coordinate.longitude rect:radar.frame];
-        
-        
-        if ( !CGPointEqualToPoint(CGPointZero, point) ) {
+
+        CGPoint point;
+        float distance = [CaculateDistance caculateDistancewith:location.latitude sJingdu:location.longitude dWeidu:myLocation.coordinate.latitude dJingdu:myLocation.coordinate.longitude];
+        NSLog(@"distance=====%f",distance);
+        if (distance < 50) {
+            point = [CaculateDistance caculatePointwith:location.latitude sJingdu:location.longitude dWeidu:myLocation.coordinate.latitude dJingdu:myLocation.coordinate.longitude rect:radar.frame];
             [points addObject:[[CPoint alloc] initWithX:point.x Y:point.y]];
         }
     }
     return points;
-//    if ([points count] >0) {
-//        [radar drawPoint:points];
-//    }
-
 }
 
 #pragma mark RadarViewDelegate

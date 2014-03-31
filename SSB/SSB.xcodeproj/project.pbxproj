@@ -221,7 +221,7 @@
 		7EA5356218E0632800250E5C /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		7EA5356418E0763000250E5C /* FYChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYChartView.h; sourceTree = "<group>"; };
 		7EA5356518E0763000250E5C /* FYChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYChartView.m; sourceTree = "<group>"; };
-		7EA5579418D07B360087B0CB /* SSB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSB.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EA5579418D07B360087B0CB /* DJK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DJK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EA5579718D07B360087B0CB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7EA5579918D07B360087B0CB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		7EA5579B18D07B360087B0CB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -490,7 +490,7 @@
 		7EA5579518D07B360087B0CB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7EA5579418D07B360087B0CB /* SSB.app */,
+				7EA5579418D07B360087B0CB /* DJK.app */,
 				7EA557B818D07B360087B0CB /* SSBTests.xctest */,
 			);
 			name = Products;
@@ -823,7 +823,7 @@
 			);
 			name = SSB;
 			productName = SSB;
-			productReference = 7EA5579418D07B360087B0CB /* SSB.app */;
+			productReference = 7EA5579418D07B360087B0CB /* DJK.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7EA557B718D07B360087B0CB /* SSBTests */ = {
@@ -1166,7 +1166,7 @@
 				INFOPLIST_FILE = "SSB/SSB-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DJK;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
@@ -1192,7 +1192,7 @@
 				INFOPLIST_FILE = "SSB/SSB-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DJK;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;

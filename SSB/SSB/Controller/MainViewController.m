@@ -55,7 +55,8 @@
     [SVGloble shareInstance].globleAllHeight = screenRect.size.height;  //屏幕高度（无顶栏）
     
     SVTopScrollView *topScrollView = [SVTopScrollView shareInstance];
-    topScrollView.backgroundColor = [UIColor blueColor];
+    topScrollView.backgroundColor = [UIColor colorWithRed:0x00 green:0xff blue:0xff alpha:1.0];
+    
     SVRootScrollView *rootScrollView = [SVRootScrollView shareInstance];
     
     topScrollView.nameArray = @[@"全市山洪灾害监测平台",@"官山水库大坝监测平台",@"浪河水库大坝监测平台"];

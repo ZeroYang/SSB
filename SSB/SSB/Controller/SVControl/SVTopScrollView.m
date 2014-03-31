@@ -68,8 +68,8 @@
         }
         [button setTitle:title forState:UIControlStateNormal];
         button.titleLabel.font = [UIFont systemFontOfSize:20.0];
-        [button setTitleColor:[SVGloble colorFromHexRGB:@"868686"] forState:UIControlStateNormal];
-        [button setTitleColor:[SVGloble colorFromHexRGB:@"bb0b15"] forState:UIControlStateSelected];
+        [button setTitleColor:[SVGloble colorFromHexRGB:@"ffffff"] forState:UIControlStateNormal];
+        [button setTitleColor:[SVGloble colorFromHexRGB:@"ff0000"] forState:UIControlStateSelected];
         [button addTarget:self action:@selector(selectNameButton:) forControlEvents:UIControlEventTouchUpInside];
         
         int buttonWidth = [title sizeWithFont:button.titleLabel.font

@@ -110,8 +110,8 @@ CGPoint caculate(double sWeidu, double sJingdu, double dWeidu,
 
 double du2Decimal(NSString* line) {
     double du = 0;
-    NSArray *splits = [line componentsSeparatedByString:@"\\."];
-    if ([splits count]>0) {
+    NSArray *splits = [line componentsSeparatedByString:@"."];
+    if ([splits count]>=3) {
        du =  [splits[0] doubleValue] + [splits[1] doubleValue]/60 + [splits[2] doubleValue]/3600;
     }
     
@@ -121,6 +121,13 @@ double du2Decimal(NSString* line) {
 
 
 @implementation CaculateDistance
+
++(float)caculateDistancewith:(double)sWeidu sJingdu:(double)sJingdu dWeidu:(double)dWeidu
+                     dJingdu:(double)dJingdu
+{
+    return getDistance(sWeidu, sJingdu, dWeidu,
+                       dJingdu);
+}
 
 +(CGPoint)caculatePointwith:(double)sWeidu sJingdu:(double)sJingdu dWeidu:(double)dWeidu
 dJingdu:(double)dJingdu rect:(CGRect)viewRect
