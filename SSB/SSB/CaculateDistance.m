@@ -11,14 +11,15 @@
 
 @implementation CPoint
 
-@synthesize x,y;
+@synthesize x,y,distance;
 
--(id)initWithX:(CGFloat)dx Y:(CGFloat)dy
+-(id)initWithX:(CGFloat)dx Y:(CGFloat)dy distance:(CGFloat)ddistance;
 {
     self = [super init];
     if (self) {
         x = dx;
         y = dy;
+        distance = ddistance;
     }
     return self;
 }

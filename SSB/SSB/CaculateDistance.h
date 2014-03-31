@@ -12,8 +12,10 @@
 
 @property(nonatomic,assign)double x;
 @property(nonatomic,assign)double y;
+@property(nonatomic,assign)double distance;
 
--(id)initWithX:(CGFloat)dx Y:(CGFloat)dy;
+
+-(id)initWithX:(CGFloat)dx Y:(CGFloat)dy distance:(CGFloat)ddistance;
 
 @end
 

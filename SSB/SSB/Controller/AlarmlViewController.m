@@ -134,10 +134,10 @@
         CGPoint point;
         float distance = [CaculateDistance caculateDistancewith:location.latitude sJingdu:location.longitude dWeidu:myLocation.coordinate.latitude dJingdu:myLocation.coordinate.longitude];
         NSLog(@"distance=====%f",distance);
-        if (distance < 50) {
-            point = [CaculateDistance caculatePointwith:location.latitude sJingdu:location.longitude dWeidu:myLocation.coordinate.latitude dJingdu:myLocation.coordinate.longitude rect:radar.frame];
-            [points addObject:[[CPoint alloc] initWithX:point.x Y:point.y]];
-        }
+
+        point = [CaculateDistance caculatePointwith:location.latitude sJingdu:location.longitude dWeidu:myLocation.coordinate.latitude dJingdu:myLocation.coordinate.longitude rect:radar.frame];
+        [points addObject:[[CPoint alloc] initWithX:point.x Y:point.y distance:distance]];
+
     }
     return points;
 }
@@ -172,8 +172,8 @@
     
     AlarmlDetailViewController *detail = [[AlarmlDetailViewController alloc] init];
     //test
-    //detail.alarmData = @"61940205|许家畈|0.4|5|1小时降雨量#62039130|太极峡|0.4|5|1小时降雨量#61939240|岗河|0.5|2|3小时降雨量";
-    detail.alarmData = alarmInfo;
+    detail.alarmData = @"61940205|许家畈|0.4|5|1小时降雨量#62039130|太极峡|0.4|5|1小时降雨量#61939240|岗河|0.5|2|3小时降雨量";
+    //detail.alarmData = alarmInfo;
     detail.alarmPoints = nil;
     [self.navigationController pushViewController:detail animated:NO];
     return;

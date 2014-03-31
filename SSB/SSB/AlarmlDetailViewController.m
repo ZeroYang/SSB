@@ -8,6 +8,7 @@
 
 #import "AlarmlDetailViewController.h"
 #import "RadarView.h"
+#import "CaculateDistance.h"
 
 @interface AlarmlDetailViewController ()
 {
@@ -38,7 +39,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //地区ID|地区名称|地区降雨量|地区水位|预警累计时间
-    rtitleList = @[@"地区降雨量", @"地区水位", @"预警累计时间"];
+    rtitleList = @[@"距离",@"地区降雨量", @"地区水位", @"预警累计时间"];
     ctitleList = [[NSMutableArray alloc] init];
     dataList = [[NSMutableArray alloc] init];
     locationIds = [[NSMutableArray alloc] init];
@@ -96,6 +97,16 @@
         [ctitleList addObject:[components objectAtIndex:1]];
         
         NSMutableArray *rowDatas = [[NSMutableArray alloc] init];
+
+        //距离 加上单位km
+        if ([alarmPoints count] >= i) {
+            CPoint *point = [alarmPoints objectAtIndex:i];
+            [rowDatas addObject:[NSString stringWithFormat:@"%fkm",point.distance]];
+        }
+        else
+        {
+            [rowDatas addObject:[NSString stringWithFormat:@"%fkm",0.0]];
+        }
 
         //降雨量 加上单位mm
         [rowDatas addObject:[NSString stringWithFormat:@"%@mm",[components objectAtIndex:2]]];
