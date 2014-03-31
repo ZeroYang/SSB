@@ -13,5 +13,6 @@
 @interface RainFallLineChartViewController : UIViewController<SINavigationMenuDelegate,ASIHTTPRequestDelegate>
 
 @property(nonatomic,strong) NSString *locationId;
+@property(nonatomic,strong) NSString *locationName;
 
 @end

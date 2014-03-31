@@ -41,6 +41,9 @@
         self.lineColor = [UIColor blackColor];
         
         self.hideDescriptionViewWhenTouchesEnd = NO;
+        
+        _textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, frame.size.height, 320, 30)];
+        [self addSubview:_textLabel];
     }
     return self;
 }

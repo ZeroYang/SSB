@@ -104,6 +104,7 @@ typedef enum HorizontalTitleAlignment HorizontalTitleAlignment;
  */
 @property (nonatomic, assign) IBOutlet id<FYChartViewDelegate> delegate;
 
+@property (nonatomic, retain) UILabel *textLabel;
 /**
  *  reload data source
  */

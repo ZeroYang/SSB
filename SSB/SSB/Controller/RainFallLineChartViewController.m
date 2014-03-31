@@ -38,7 +38,7 @@
 @end
 
 @implementation RainFallLineChartViewController
-@synthesize locationId;
+@synthesize locationId,locationName;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -90,7 +90,7 @@
     self.chartView.rectangleLineColor = [UIColor grayColor];
     self.chartView.lineColor = [UIColor blueColor];
     self.chartView.dataSource = self;
-
+    self.chartView.textLabel.text = locationName;
     
     [root addSubview:self.chartView];
     

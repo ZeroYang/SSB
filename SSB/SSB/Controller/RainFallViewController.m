@@ -228,6 +228,7 @@
     
     RainFallLineChartViewController *lineChart = [[RainFallLineChartViewController alloc] init];
     lineChart.locationId  = [locationIds objectAtIndex:rowPath.row];
+    lineChart.locationName = [ctitleList objectAtIndex:rowPath.row];
     [self.navigationController pushViewController:lineChart animated:YES];
 }
 
