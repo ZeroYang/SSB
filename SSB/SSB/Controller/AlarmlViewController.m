@@ -101,7 +101,7 @@
     
     NSString *result = [dic objectForKey:@"text"];
     alarmInfo = result;
-    result = @"61940205|许家畈|0.4|5|1小时降雨量#62039130|太极峡|0.4|5|1小时降雨量#61939240|岗河|0.5|2|3小时降雨量";
+    //result = @"61940205|许家畈|0.4|5|1小时降雨量#62039130|太极峡|0.4|5|1小时降雨量#61939240|岗河|0.5|2|3小时降雨量";
     NSArray *skArray = [result componentsSeparatedByString:@"#"];
     if(0 == [skArray count]) //报文格式错误
     {
@@ -172,8 +172,8 @@
     
     AlarmlDetailViewController *detail = [[AlarmlDetailViewController alloc] init];
     //test
-    detail.alarmData = @"61940205|许家畈|0.4|5|1小时降雨量#62039130|太极峡|0.4|5|1小时降雨量#61939240|岗河|0.5|2|3小时降雨量";
-    //detail.alarmData = alarmInfo;
+    //detail.alarmData = @"61940205|许家畈|0.4|5|1小时降雨量#62039130|太极峡|0.4|5|1小时降雨量#61939240|岗河|0.5|2|3小时降雨量";
+    detail.alarmData = alarmInfo;
     detail.alarmPoints = nil;
     [self.navigationController pushViewController:detail animated:NO];
     return;
