@@ -81,8 +81,11 @@
     
     GSView *gsView = [[GSView alloc] initWithFrame:CGRectMake(0, 0, 320, viewHeight)];
     [views addObject:gsView];
+    [gsView initSpringBoard];
+    
     LHView *lhView = [[LHView alloc] initWithFrame:CGRectMake(0, 0, 320, viewHeight)];
     [views addObject:lhView];
+    [lhView initSpringBoard];
     
     [rootScrollView initWithViews:views];
     

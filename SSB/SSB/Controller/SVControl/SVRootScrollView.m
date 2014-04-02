@@ -31,7 +31,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.delegate = self;
-        self.backgroundColor = [UIColor lightGrayColor];
+        self.backgroundColor = [UIColor whiteColor];
         self.pagingEnabled = YES;
         self.userInteractionEnabled = YES;
         self.bounces = NO;

@@ -10,4 +10,9 @@
 
 @interface LHView : UIView
 
+@property (nonatomic,weak) UIViewController *viewControl;
+
+- (void)initSpringBoard;
+
+
 @end

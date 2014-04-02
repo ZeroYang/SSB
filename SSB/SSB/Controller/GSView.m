@@ -7,39 +7,88 @@
 //
 
 #import "GSView.h"
+#import "MenuItem.h"
+#import "MenuItemView.h"
+
+#define MENUITEMVIEW_WIDTH      90
+#define MENUITEMVIEW_HEIGHT     90
+#define SPACE_WIDTH             30/4//间距
+
+@interface GSView()<MenuItemViewDelegate>
+{
+    NSMutableArray *items;
+    UIView* contentView;
+}
+@end
 
 @implementation GSView
+
+@synthesize viewControl;
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        UILabel *text = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 200, 50)];
-        text.text = @"官山水库大坝监测平台";
-        text.backgroundColor = [UIColor clearColor];
-        [self addSubview:text];
-        [self addWebView];
+        
+        contentView = [[UIView alloc] initWithFrame:CGRectMake(10, 0, frame.size.width - 20, frame.size.height)];
+        contentView.backgroundColor = [UIColor lightGrayColor];
+        [self addSubview:contentView];
+        
+        items = [[NSMutableArray alloc] init];
+        //降雨量
+        MenuItem *item1 = [[MenuItem alloc] init];
+        item1.icon = @"rainfall";
+        item1.name = @"降雨量";
+        [items addObject:item1];
+        //水位
+        MenuItem *item2 = [[MenuItem alloc] init];
+        item2.icon = @"waterlevel";
+        item2.name = @"水位";
+        [items addObject:item2];
+        //视频教程
+        MenuItem *item3 = [[MenuItem alloc] init];
+        item3.icon = @"movie";
+        item3.name = @"视频教程";
+        [items addObject:item3];
     }
     return self;
 }
 
--(void)addWebView
+- (void)initSpringBoard
 {
-    UIWebView *webView = [[UIWebView alloc] initWithFrame:self.bounds];
-    [self addSubview:webView];
-    NSURL *url = [NSURL URLWithString:@"http://61.184.80.90/doc/page/main.asp"];
-    //NSURL *url = [NSURL URLWithString:resoureUrl];
-    NSURLRequest *request =[NSURLRequest requestWithURL:url];
-    [webView loadRequest:request];
+    
+    for (int i = 0; i < [items count]; i++) {
+        
+        MenuItemView *view =  [[MenuItemView alloc] initWithFrame:CGRectMake(i%3*(MENUITEMVIEW_WIDTH+SPACE_WIDTH)+SPACE_WIDTH, i/3*(MENUITEMVIEW_HEIGHT+2*SPACE_WIDTH), MENUITEMVIEW_WIDTH, MENUITEMVIEW_HEIGHT)];
+        [contentView addSubview:view];
+        view.delegate = self;
+
+        MenuItem *item = [items objectAtIndex:i];
+        item.viewControl = viewControl;
+        [view initWith:item];
+    }
+    
+    
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+
+-(void)didClickMenu:(MenuItemView*)menu
 {
-    // Drawing code
+    MenuItem *item = menu.item;
+    
+    NSURL *url = nil;
+    if ([item.name isEqualToString:@"视频教程"]) {
+        url = [NSURL URLWithString:@"http://61.184.80.90/doc/page/main.asp"];
+    }
+    if ([item.name isEqualToString:@"降雨量"]) {
+        url = [NSURL URLWithString:@"http://61.184.80.90:90"];
+    }
+    if ([item.name isEqualToString:@"水位"]) {
+        url = [NSURL URLWithString:@"http://61.184.80.90:90"];
+    }
+    
+    [[UIApplication sharedApplication] openURL:url];
+
 }
-*/
 
 @end

@@ -9,14 +9,22 @@
 #import "DJView.h"
 #import "MenuItem.h"
 #import "MenuItemView.h"
+#import "AlarmlViewController.h"
+#import "ReferenceViewController.h"
+#import "VideoTutorialViewController.h"
+#import "RainFallViewController.h"
+#import "WaterLevelViewController.h"
+#import "WeatherViewController.h"
+#import "PhotoViewController.h"
 
 #define MENUITEMVIEW_WIDTH      90
 #define MENUITEMVIEW_HEIGHT     90
-#define SPACE_WIDTH             50/4//间距
+#define SPACE_WIDTH             30/4//间距
 
-@interface DJView()
+@interface DJView()<MenuItemViewDelegate>
 {
     NSMutableArray *items;
+    UIView* contentView;
 }
 @end
 
@@ -29,6 +37,11 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        
+        contentView = [[UIView alloc] initWithFrame:CGRectMake(10, 0, frame.size.width - 20, frame.size.height)];
+        contentView.backgroundColor = [UIColor lightGrayColor];
+        [self addSubview:contentView];
+
         items = [[NSMutableArray alloc] init];
         //降雨量
         MenuItem *item1 = [[MenuItem alloc] init];
@@ -75,8 +88,9 @@
 
     for (int i = 0; i < [items count]; i++) {
 
-        MenuItemView *view =  [[MenuItemView alloc] initWithFrame:CGRectMake(i%3*(MENUITEMVIEW_WIDTH+SPACE_WIDTH)+SPACE_WIDTH, i/3*(MENUITEMVIEW_HEIGHT+SPACE_WIDTH), MENUITEMVIEW_WIDTH, MENUITEMVIEW_HEIGHT)];
-        [self addSubview:view];
+        MenuItemView *view =  [[MenuItemView alloc] initWithFrame:CGRectMake(i%3*(MENUITEMVIEW_WIDTH+SPACE_WIDTH)+SPACE_WIDTH, i/3*(MENUITEMVIEW_HEIGHT+2*SPACE_WIDTH), MENUITEMVIEW_WIDTH, MENUITEMVIEW_HEIGHT)];
+        [contentView addSubview:view];
+        view.delegate = self;
         
         MenuItem *item = [items objectAtIndex:i];
         item.viewControl = viewControl;
@@ -84,6 +98,40 @@
     }
     
     
+}
+
+-(void)didClickMenu:(MenuItemView*)menu
+{
+    MenuItem *item = menu.item;
+
+    if ([item.name isEqualToString:@"预警雷达"]) {
+        AlarmlViewController *alarm = [[AlarmlViewController alloc] init];
+        [item.viewControl.navigationController pushViewController:alarm animated:NO];
+    }
+    if ([item.name isEqualToString:@"相关链接"]) {
+        ReferenceViewController *reference = [[ReferenceViewController alloc] init];
+        [item.viewControl.navigationController pushViewController:reference animated:NO];
+    }
+    if ([item.name isEqualToString:@"视频教程"]) {
+        VideoTutorialViewController *tutorial = [[VideoTutorialViewController alloc] init];
+        [item.viewControl.navigationController pushViewController:tutorial animated:NO];
+    }
+    if ([item.name isEqualToString:@"降雨量"]) {
+        RainFallViewController *rainfall = [[RainFallViewController alloc] init];
+        [item.viewControl.navigationController pushViewController:rainfall animated:NO];
+    }
+    if ([item.name isEqualToString:@"水位"]) {
+        WaterLevelViewController *warterlevel = [[WaterLevelViewController alloc] init];
+        [item.viewControl.navigationController pushViewController:warterlevel animated:NO];
+    }
+    if ([item.name isEqualToString:@"天气预报"]) {
+        WeatherViewController *weather= [[WeatherViewController alloc] init];
+        [item.viewControl.navigationController pushViewController:weather animated:NO];
+    }
+    if ([item.name isEqualToString:@"照片"]) {
+        PhotoViewController *photo= [[PhotoViewController alloc] init];
+        [item.viewControl.navigationController pushViewController:photo animated:NO];
+    }
 }
 
 
