@@ -56,12 +56,6 @@ double rad(double d) {
 
 double getSin(double sWeidu, double sJingdu, double dWeidu,
               double dJingdu) {
-    double x = fabs(sWeidu - dWeidu);
-    double y = pow(sWeidu - dWeidu, 2);
-    double z = pow(sJingdu - dJingdu, 2);
-    double d = pow(y+z, 0.5);
-    double c = x/d;
-    
     double re = fabs(sWeidu - dWeidu) / pow(pow(sWeidu - dWeidu, 2)+pow(sJingdu - dJingdu, 2), 0.5);
     return re;
 }
@@ -69,12 +63,6 @@ double getSin(double sWeidu, double sJingdu, double dWeidu,
 
 double getCos(double sWeidu, double sJingdu, double dWeidu,
               double dJingdu) {
-    
-    double x = fabs(sJingdu - dJingdu);
-    double y = pow(sWeidu - dWeidu, 2);
-    double z = pow(sJingdu - dJingdu, 2);
-    double d = pow(y+z, 0.5);
-    double c = x/d;
     double re = fabs(sJingdu - dJingdu) / pow( pow(sWeidu - dWeidu, 2)+pow(sJingdu - dJingdu, 2), 0.5);
     return re;
 }
