@@ -56,13 +56,27 @@ double rad(double d) {
 
 double getSin(double sWeidu, double sJingdu, double dWeidu,
               double dJingdu) {
-    return abs(sWeidu - dWeidu) / pow(pow(sWeidu - dWeidu, 2)+pow(sJingdu - dJingdu, 2), 0.5);
+    double x = fabs(sWeidu - dWeidu);
+    double y = pow(sWeidu - dWeidu, 2);
+    double z = pow(sJingdu - dJingdu, 2);
+    double d = pow(y+z, 0.5);
+    double c = x/d;
+    
+    double re = fabs(sWeidu - dWeidu) / pow(pow(sWeidu - dWeidu, 2)+pow(sJingdu - dJingdu, 2), 0.5);
+    return re;
 }
 
 
 double getCos(double sWeidu, double sJingdu, double dWeidu,
               double dJingdu) {
-    return abs(sJingdu - dJingdu) / pow( pow(sWeidu - dWeidu, 2)+pow(sJingdu - dJingdu, 2), 0.5);
+    
+    double x = fabs(sJingdu - dJingdu);
+    double y = pow(sWeidu - dWeidu, 2);
+    double z = pow(sJingdu - dJingdu, 2);
+    double d = pow(y+z, 0.5);
+    double c = x/d;
+    double re = fabs(sJingdu - dJingdu) / pow( pow(sWeidu - dWeidu, 2)+pow(sJingdu - dJingdu, 2), 0.5);
+    return re;
 }
 
 double getDistance(double sWeidu, double sJingdu,
@@ -88,22 +102,25 @@ CGPoint caculate(double sWeidu, double sJingdu, double dWeidu,
     float radius = getCircleRadius(viewRect, x, y);
     if (getDistance(sWeidu, sJingdu, dWeidu, dJingdu) <= 50) {
         CGPoint p = CGPointZero;
-        double pDistance = (getDistance(sWeidu, sJingdu, dWeidu, dJingdu) / 50)
-        * radius;
+        double pDistance = (getDistance(sWeidu, sJingdu, dWeidu, dJingdu) / 50) * radius;
         int px, py;
         if (dJingdu >= sJingdu)
-            px = (int) (x + (pDistance)
-						* getCos(sWeidu, sJingdu, dWeidu, dJingdu));
+        {
+            px = (int) (x + (pDistance) * getCos(sWeidu, sJingdu, dWeidu, dJingdu));
+        }
         else
-            px = (int) (x - (pDistance)
-						* getCos(sWeidu, sJingdu, dWeidu, dJingdu));
+        {
+            px = (int) (x - (pDistance) * getCos(sWeidu, sJingdu, dWeidu, dJingdu));
+        }
         if (dWeidu >= sWeidu)
-            py = (int) (y - (pDistance)
-						* getSin(sWeidu, sJingdu, dWeidu, dJingdu));
+        {
+            py = (int) (y - (pDistance) * getSin(sWeidu, sJingdu, dWeidu, dJingdu));
+        }
         else
-            py = (int) (y + (pDistance)
-						* getSin(sWeidu, sJingdu, dWeidu, dJingdu));
-        CGPointMake(px, py);
+        {
+            py = (int) (y + (pDistance) * getSin(sWeidu, sJingdu, dWeidu, dJingdu));
+        }
+        p = CGPointMake(px, py);
         return p;
     }
     return CGPointZero;

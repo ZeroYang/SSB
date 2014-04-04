@@ -44,7 +44,7 @@
     if ([[[UIDevice currentDevice] systemVersion] doubleValue] >= 7.0) {
         
         self.edgesForExtendedLayout = UIRectEdgeNone;
-        
+        locationIds = [[NSMutableArray alloc] init];
     }
 }
 
@@ -58,13 +58,14 @@
     radar.backgroundColor = [UIColor blackColor];
     radar.delegate = self;
     
+    locationIds = [[NSMutableArray alloc] init];
+    
 //    UITapGestureRecognizer *tapGr = [[UITapGestureRecognizer alloc]
 //                                     initWithTarget:self
 //                                     action:@selector(viewTapped:)];
 //    tapGr.cancelsTouchesInView = NO;
 //    [radar addGestureRecognizer:tapGr];
     
-    locationIds = [[NSMutableArray alloc] init];
     
 }
 
@@ -100,8 +101,10 @@
     NSDictionary *dic =[WebServiceHelper getWebServiceXMLResult:xmlResult xpath:@"getDataApp_YuliangtableResult"];
     
     NSString *result = [dic objectForKey:@"text"];
+    //test
+    result = @"61940205|许家畈|0.4|5|1小时降雨量#62039130|太极峡|0.4|5|1小时降雨量#61939240|岗河|0.5|2|3小时降雨量";
+    
     alarmInfo = result;
-    //result = @"61940205|许家畈|0.4|5|1小时降雨量#62039130|太极峡|0.4|5|1小时降雨量#61939240|岗河|0.5|2|3小时降雨量";
     NSArray *skArray = [result componentsSeparatedByString:@"#"];
     if(0 == [skArray count]) //报文格式错误
     {
@@ -137,6 +140,7 @@
 
         point = [CaculateDistance caculatePointwith:location.latitude sJingdu:location.longitude dWeidu:myLocation.coordinate.latitude dJingdu:myLocation.coordinate.longitude rect:radar.frame];
         [points addObject:[[CPoint alloc] initWithX:point.x Y:point.y distance:distance]];
+        NSLog(@"point.x=%f,point.y=%f",point.x ,point.y);
 
     }
     return points;
@@ -159,6 +163,8 @@
     AlarmlDetailViewController *detail = [[AlarmlDetailViewController alloc] init];
     //test
     //detail.alarmData = @"61940205|许家畈|0.4|5|1小时降雨量#62039130|太极峡|0.4|5|1小时降雨量#61939240|岗河|0.5|2|3小时降雨量";
+    //test DJK location
+    location = [[CLLocation alloc] initWithLatitude:32.521374 longitude:111.671203];
     detail.alarmData = alarmInfo;
     detail.alarmPoints = [self drawSAlarmsitePoint:location];
     [self.navigationController pushViewController:detail animated:NO];

@@ -102,8 +102,11 @@ static inline float radians(double degrees) {
     UIBezierPath *path = [UIBezierPath bezierPath];
     for (CPoint *cpoint in points) {
         CGPoint point = CGPointMake(cpoint.x, cpoint.y);
-        [path moveToPoint:point];
-        [path addArcWithCenter:point radius:4 startAngle:radians(0) endAngle:radians(360) clockwise:YES];
+        if(!CGPointEqualToPoint(CGPointZero, point))
+        {
+            [path moveToPoint:point];
+            [path addArcWithCenter:point radius:4 startAngle:radians(0) endAngle:radians(360) clockwise:YES];
+        }
     }
 
     [pshaplayer setPath:path.CGPath];
