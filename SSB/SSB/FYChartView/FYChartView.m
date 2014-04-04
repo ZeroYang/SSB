@@ -112,7 +112,7 @@
             CGContextStrokePath(currentContext);
         }
         
-        NSString *text = [NSString stringWithFormat:@"%.2f", (i + 1) * (maxVerticalValue / 6)];
+        NSString *text = [NSString stringWithFormat:@"%.2f", (i + 1) * (2*maxVerticalValue / 6)];
         [text drawAtPoint:CGPointMake(.0f,
                                       rect.size.height - itemHeight * i + verticalTextSize.height - verticalTextSize.height * 0.5f)
                  withFont:[UIFont systemFontOfSize:10.0f]];
@@ -211,7 +211,7 @@
     CGPoint retPoint = CGPointZero;
     
     retPoint.x = index * horizontalItemWidth + verticalTextSize.width;
-    retPoint.y = self.frame.size.height - verticalTextSize.height - value * verticalItemHeight;
+    retPoint.y = self.frame.size.height - verticalTextSize.height - value * verticalItemHeight + maxVerticalValue/2;
     
     retPoint.y = isnan(retPoint.y)  ? self.frame.size.height - verticalTextSize.height - 1 : retPoint.y;
     return retPoint;
