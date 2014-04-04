@@ -7,9 +7,12 @@
 //
 
 #import "WeatherViewController.h"
+#import "SUIActivityIndicatorView.h"
 
-@interface WeatherViewController ()
-
+@interface WeatherViewController ()<UIWebViewDelegate>
+{
+    SUIActivityIndicatorView *activityView;
+}
 @end
 
 @implementation WeatherViewController
@@ -37,12 +40,33 @@
     NSURL *url = [NSURL URLWithString:@"http://www.weather.com.cn/weather/101201107.shtml"];
     NSURLRequest *request =[NSURLRequest requestWithURL:url];
     [webView loadRequest:request];
+    webView.delegate = self;
+    
+    activityView = [[SUIActivityIndicatorView alloc] init];
+    [activityView showWaitingInViewController:self];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+    NSLog(@"load start");
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [activityView hideWaiting];
+    NSLog(@"load finish");
+}
+
+-(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [activityView hideWaiting];
+    NSLog(@"webView load error:%@",[error description]);
 }
 
 @end
