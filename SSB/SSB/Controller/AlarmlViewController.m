@@ -102,7 +102,7 @@
     
     NSString *result = [dic objectForKey:@"text"];
     //test
-    result = @"61940205|许家畈|0.4|5|1小时降雨量#62039130|太极峡|0.4|5|1小时降雨量#61939240|岗河|0.5|2|3小时降雨量";
+    //result = @"61940205|许家畈|0.4|5|1小时降雨量#62039130|太极峡|0.4|5|1小时降雨量#61939240|岗河|0.5|2|3小时降雨量";
     
     alarmInfo = result;
     NSArray *skArray = [result componentsSeparatedByString:@"#"];
@@ -164,7 +164,7 @@
     //test
     //detail.alarmData = @"61940205|许家畈|0.4|5|1小时降雨量#62039130|太极峡|0.4|5|1小时降雨量#61939240|岗河|0.5|2|3小时降雨量";
     //test DJK location
-    location = [[CLLocation alloc] initWithLatitude:32.521374 longitude:111.671203];
+    //location = [[CLLocation alloc] initWithLatitude:32.521374 longitude:111.671203];
     detail.alarmData = alarmInfo;
     detail.alarmPoints = [self drawSAlarmsitePoint:location];
     [self.navigationController pushViewController:detail animated:NO];
