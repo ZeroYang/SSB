@@ -217,7 +217,7 @@
 //description view at index
 - (UIView *)chartView:(FYChartView *)chartView descriptionViewAtIndex:(NSInteger)index
 {
-    NSString *description = [NSString stringWithFormat:@"time=%@\nvalue=%.2fmm", [dayTimes objectAtIndex:index],
+    NSString *description = [NSString stringWithFormat:@"时间=%@\n降雨量=%.2fmm", [dayTimes objectAtIndex:index],
                              [((NSNumber *)self.values[index]) floatValue]];
     
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"chart_ description_bg"]];

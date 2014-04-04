@@ -31,6 +31,7 @@
     
     SUIActivityIndicatorView *activityView;
     
+    BOOL isWaterLevel;
 }
 
 @property (nonatomic, strong) FYChartView *chartView;
@@ -116,26 +117,32 @@
     
     if (0 == index) {
         self.values = sum1hValues;
+        isWaterLevel = NO;
     }
     
     if (1 == index) {
         self.values = sum3hValues;
+        isWaterLevel = NO;
     }
     
     if (2 == index) {
         self.values = sum6hValues;
+        isWaterLevel = NO;
     }
     
     if (3 == index) {
         self.values = sum12hValues;
+        isWaterLevel = NO;
     }
     
     if (4 == index) {
         self.values = sum24hValues;
+        isWaterLevel = NO;
     }
     
     if (5 == index) {
         self.values = waterLevelValues;
+        isWaterLevel = YES;
     }
     
     [self.chartView reloadData];
@@ -223,8 +230,13 @@
 //description view at index
 - (UIView *)chartView:(FYChartView *)chartView descriptionViewAtIndex:(NSInteger)index
 {
-    NSString *description = [NSString stringWithFormat:@"time=%@\nvalue=%.2fmm", [dayTimes objectAtIndex:index],
+    NSString *description = [NSString stringWithFormat:@"时间=%@\n降雨量=%.2fmm", [dayTimes objectAtIndex:index],
                              [((NSNumber *)self.values[index]) floatValue]];
+    if(isWaterLevel)
+    {
+        description = [NSString stringWithFormat:@"时间=%@\n水位=%.2fm", [dayTimes objectAtIndex:index],
+                       [((NSNumber *)self.values[index]) floatValue]];
+    }
     
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"chart_ description_bg"]];
     CGRect frame = imageView.frame;
